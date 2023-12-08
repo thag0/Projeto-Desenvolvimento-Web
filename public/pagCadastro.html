@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<link rel="stylesheet" href="css/telasCad.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="images/LOGO.ico" type="image/x-icon">
+	<script type="text/javascript" src="js/login.js"></script>
+	<title>Cadastro</title>
+</head>
+
+<body>
+	<div class="container">
+		<h2>Cadastre-se</h2>
+		<form id="formCadastro" action="index.html" method="post">
+			<div class="input-field">
+				<input type="text" id="nome" placeholder="alguma coisa">
+				<label for="nome">Nome:</label>
+			</div>
+
+			<div class="input-field">
+				<input type="text" id="email" placeholder="alguma coisa">
+				<label for="senha">E-mail:</label>
+			</div>
+
+			<div class="input-field">
+				<input type="password" id="senha" placeholder="alguma coisa">
+				<label for="senha">Senha:</label>
+				<img src="images/olho.png" onclick="mouseoverPass();" onmouseout="mouseoutPass();" id="olho" class="olho">
+			</div>
+			<div class="input-field">
+				<input type="password" id="confirmar_senha" placeholder="alguma coisa">
+				<label for="senha">Confirmar Senha:</label>
+				<img src="images/olho.png" onclick="mouseoverPass2();" onmouseout="mouseoutPass2();" id="olho" class="olho">
+			</div>
+
+			<div class="center">
+				<button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
+				<button type="button" onclick="Voltar()">Voltar</button>
+			</div>
+	</div>
+	</form>
+
+	</div>
+</body>
+
+</html>
