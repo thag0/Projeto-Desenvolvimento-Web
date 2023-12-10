@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap');
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+    font-family: Jost,Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: rgb(61, 179, 245);
+}
+body > .navmain {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Permite a quebra de linha para os elementos */
+    height: 40px; /* Altura automática para acomodar os elementos */
+}
+.principal{
+
+    align-items: center;
+
+}
+.cabeca{
+    display: flex;
+}
+
+.cabeca a img{
+    height: 80px;
+	width:200px;
+    margin-left: 30%;
+}
+
+.navmain{
+    padding: 0%;
+    background-color: rgb(6, 163, 252);
+    height: 40px;
+    width:100%;
+    text-transform: uppercase;
+}
+.navegacao ul li{
+    cursor: pointer;
+	float: left;
+	display: inline;
+	width: 250px;
+	text-align: center;
+	font-size: 12px;
+	line-height: 40px;
+	position: relative;
+	font-weight: bold; 	
+}
+.navegacao  nav ul li a {
+	color: white;
+	text-decoration: none; 
+}
+
+.navegacao  ul li:hover {
+	transition: background .6s;
+	background: rgba(0, 0, 0, 0.205);
+	color: white;
+}
+.navegacao  nav ul li a:hover {
+	color:white;
+}
+
+.navegacao  nav ul ul li:hover a{
+	background: rgba(0, 0, 0, 0.326);
+	
+}
+.navegacao  nav ul ul li a {
+	color: black;
+	text-decoration: none;
+      
+}
+.navegacao  nav ul ul li a:hover {
+	color: white;
+}
+
+.navegacao  ul ul{
+	display: none;
+	
+}
+.navegacao  ul li:hover ul{
+ 	display: block;
+}
+
+.navegacao  ul ul li a{
+	font-weight:lighter ;   
+	display: block;
+	transition:  .6s;
+}
+.login-cadastro {
+    display: flex;
+    width: 8%;
+    align-items: center;
+    overflow-wrap: break-word;
+    text-transform: uppercase;
+}
+
+.login-cadastro ul{
+    width: 7%;
+    position: absolute;
+    left: 1070px;    
+    margin-left: 10px;
+    text-align: justify;
+    font-size: 10px;
+    overflow-wrap: break-word;
+}
+
+.login-cadastro ul a {
+    color: white;
+}
+#user {
+    cursor: pointer;
+    width: 37px; 
+    height: 37px; 
+    left: 1039px; 
+    top: 34px; 
+    position: absolute; 
+    border-radius: 7px;
+}
+.conteudo{
+    position: relative;
+    background-color: rgb(40, 40, 40);
+    flex-grow: 1;
+    overflow: hidden;
+    display: grid;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Organiza os filmes em colunas com tamanho mínimo de 200px */
+    gap: 10px; /* Espaçamento entre os filmes */
+    padding: 20px; /* Espaçamento interno da div "conteudo" */
+
+}
+
+#cartaz, #breve {
+    position: absolute;
+    width: 107px; 
+    height: 25px; 
+    position: absolute; 
+    text-align: center; 
+    color: white; 
+    font-size: 16px; 
+    font-family: Jost; 
+    font-weight: 400;
+    cursor: pointer;
+    word-wrap: break-word;
+    top: 2z0px; 
+    
+}
+#cartaz{
+    left: 387px; 
+}
+#breve{
+    left: 760px; 
+}
+#barraCartaz, #barraBreve {
+    position: absolute;
+    width: 107px; 
+    height: 3px; 
+    top: 50px;  
+    background: #3DB3F5; 
+    border-radius: 2px;
+    /* Posicionamento e estilos conforme necessário */
+}
+
+#barraCartaz{
+    display: block;
+    left: 386px; 
+}
+#barraBreve{
+    display: none;
+    left: 756px; 
+}
+
+.botao-movimentoEsq {
+    position: absolute;
+}
+.botao-movimentoDir{
+    position: absolute;
+    margin-left: 1065px;
+}
+
+#imgdir,
+#imgesq {
+    width: 24px;
+    height: auto;
+    cursor: pointer;
+    margin: 0 20px;
+    margin-top: -60px;
+}
+
+.filme-container {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+    overflow: hidden; /* Para esconder filmes que ultrapassam a largura */
+}
+
+#f1, #f2, #f3, #f4 {
+    margin-top: 5%;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    font-family: Jost;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    width: 211px;
+    height: 60px; /* Altura fixa para o título */
+    overflow: hidden; /* Oculta texto que ultrapassa a altura */
+}
+
+/* Adapte o contêiner para se ajustar à quantidade de filmes */
+.filme1,.filme2,.filme3,.filme4 {
+    margin-right:50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container img {
+    width: 211px;
+    height: 313px;
+    cursor: pointer;
+}
+
+.contatos {
+    color:black;
+	font-size: 80%;
+	padding-top: 10px;  
+    margin-left: 5%;
+    margin-top: auto; /* Empurrar para a parte inferior */
+}
+.contatos aside h3{
+    color: rgb(0, 0, 0);
+	font-size: 20px;
+}
+.contatos aside ul {
+    list-style: none;
+	padding-right: 20px;
+}
+.contatos aside ul li a{
+    text-decoration: none;  
+	padding: 10px 5px 5px 5px;
+    color: w; 
+	transition: background .6s;
+}
+.contatos aside ul li a:hover{
+	color: #000000;
+}
+.contatos ul li img{
+    vertical-align: middle;
+    padding-right: 5px;
+    height:25px;
+	width:30px;
+}
+
+
+
+/* For smaller screens */
+@media only screen and (max-width: 600px) {
+    /* Adjust styles here */
+    .cabeca a img {
+        /* Update image size or margins for smaller screens */
+        height: 60px;
+        width: 150px;
+        margin-left: 10%;
+    }
+    /* ... Other responsive adjustments ... */
+}
+
+/* For larger screens */
+@media only screen and (min-width: 1200px) {
+    /* Adjust styles here */
+    .cabeca a img {
+        /* Update image size or margins for larger screens */
+        height: 100px;
+        width: 250px;
+        margin-left: 20%;
+    }
+    /* ... Other responsive adjustments ... */
+}

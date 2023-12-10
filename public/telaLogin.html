@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/styleLogin.css">
+	<link rel="shortcut icon" href="images/LOGO.ico" type="image/x-icon">
+	<title>Login</title>
+	<script type="module" src="./js/login.js"></script>
+</head>
+
+<body>
+	<script type="module">
+		import login from '/js/login.js'
+
+		const funcoesLogin = {
+			cadastrarUsuario: login.cadastrarUsuario,
+			fazerLogin: login.fazerLogin,
+			voltar: login.voltar
+		}
+
+		document.getElementById('botaoEntrar').addEventListener('click', funcoesLogin.fazerLogin);	
+	   document.getElementById('botaoVoltar').addEventListener('click', funcoesLogin.voltar);
+	</script>
+
+	<main class="conteudo">
+		<img src="images/logo.png" class="logo">
+		<div class="logins">
+			<div class="container">
+				<h2>Login</h2>
+				<div class="input-field">
+					<input type="text" id="nomeLogin" placeholder="alguma coisa">
+					<label for="nome">Nome:</label>
+				</div><!-- -->
+
+				<div class="input-field password-field">
+					<input type="password" id="senhaLogin" placeholder="alguma coisa">
+					<label for="senha">
+						Senha:
+					</label>
+					<img src="images/olho.png" onclick="togglePassword()" class="olho" id="olho">
+				</div><!-- -->
+
+				<div class="center">
+					<button type="button" id="botaoEntrar">
+						Entrar
+					</button>
+					<button type="button" id="botaoVoltar">
+						Voltar
+					</button>
+					<br><br>
+					<a href="pagMudarSenha.html">
+						<p>Esqueceu a sua senha ?</p>
+					</a>
+					<br>
+					<a href="pagCadastro.html">
+						<p>Ainda não sou cadastrado</p>
+					</a>
+				</div><!-- -->
+
+
+			</div><!-- fim div container-->
+			<div class="contasSociais">
+				<h2>Entre com sua rede social</h2>
+				<button class="facebookbutton" type="button" onclick="Nova()">
+					<img id="facebook" src="images/face2.png" alt="Facebook">
+					Entre com o Facebook
+				</button>
+				<!-- <button class="googlebutton" type="button" onclick="funcoesLogin.voltar()" > -->
+				<button class="googlebutton" type="button" onclick="funcoesLogin.voltar()">
+					<img id="google" src="images/google.png" alt="Google">
+					Entre com o Google
+				</button>
+			</div><!-- fim div contasSociais-->
+		</div><!-- fim div logins -->
+	</main> <!--fim main conteúdo -->
+</body>
+
+</html>

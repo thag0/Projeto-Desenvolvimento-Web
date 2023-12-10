@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
+
+	<link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
+	<script type="module" src="./js/index.js"></script>
+	<script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+	<title>Cine - FECOMP</title>
+</head>
+
+<body>
+    <header class="cabeca">
+        <a href="index.html"><img src="images/logo.png" alt="imagem"></a>
+        <div class="login-cadastro">
+            <img id="user" src="images/user.png" alt="user">
+            <ul>
+                <a href="telaLogin.html" id="nomeUsuario"></a>
+            </ul>
+        </div>
+    </header>
+    <div class="navmain">
+        <div class="navegacao">
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="#">Inicio</a>
+                        </li>
+                        <li><a href="lista.html">Programação</a>
+                        </li>
+                        <li><a href="lista.html">Ingressos</a>
+                        </li>
+                        <li><a href="lista.html">Sobre o Cine FECOMP</a>
+                        </li>
+                        <li><a href="lista.html">Atendimento</a>
+                        </li>
+                    </ul>
+                </nav>	
+            </header>
+        </div> <!--fim da div main nav-->
+    </div>
+    
+	<div class="conteudo">
+        <div id="cartaz" onclick="baCartaz()">EM CARTAZ</div>
+        <div id="barraCartaz"></div>
+        <div id="breve"onclick="baBreve()">EM BREVE</div>
+        <div id="barraBreve"></div>
+        <div class="container">
+
+            <div class=".botao-movimentoEsq">
+                <img id="imgesq" src="images/Vector 2.svg" onclick="moverDireita()" />
+               
+            </div>
+            
+            <div class="filme1 item" onclick="executaAcao()" >
+                <img src="images/filme.jpg" alt="Filme 1" />
+                <div id="f1" onclick="executaAcao()" >JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES</div>
+            </div>
+
+            <div class="filme2 item">
+                <img src="images/trolls.jpg" />
+                <div id="f2" >TROLLS 3</div> 
+            </div>
+        
+            <div class="filme3 item">
+                <img src="images/napoleao.jpg" />
+                <div id="f3" >NAPOLEÃO</div>    
+            </div>
+
+            <div class="filme4 item">
+                <img src="images/msMarvel.jpg" />
+                <div id="f4" >AS MARVELS</div>
+            </div>
+
+           <div class="botao-movimentoDir">
+                <img id="imgdir" src="images/Vector 1.svg" onclick="moverEsquerda()" />  
+           </div>
+        </div><!--fim div container-->
+
+        <div style="clear:both;"></div>
+    </div><!-- fim div conteudo-->
+
+	<div class="contatos">
+		<aside>
+			<h3>Contatos</h3>
+			<ul>
+				<li><a href="https://www.facebook.com/cleber.almeida.79" target="_blank" rel="noopener noreferrer"><img
+							src="images/facebook.png" alt="facebook">Facebook</a></li>
+				<li><a href="https://www.instagram.com/cleberton7/" target="_blank" rel="noopener noreferrer"><img
+							src="images/insta.png" alt="instagram">Instagram</a></li>
+				<li><a href="https://twitter.com/cleberton_de" target="_blank" rel="noopener noreferrer"><img
+							src="images/ttr.png" alt="twitter">Twitter</a></li>
+				<li><a href="https://api.whatsapp.com/send?phone=5594984097379&text=Cleberton" target="_blank"
+						rel="noopener noreferrer"><img src="images/wpp.png" alt="whatsapp">WhatsApp</a></li>
+				<li><a href="https://www.linkedin.com/in/cleberton-pereira-98867992/" target="_blank"
+						rel="noopener noreferrer"><img src="images/link.png" alt="linkedin">LinkedIn</a></li>
+			</ul>
+		</aside>
+	</div> <!--fim div contato-->
+
+</body>
+
+</html>

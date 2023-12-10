@@ -1,6 +1,9 @@
-const express = require('express');
-const database = require('./public/js/database.js')
-const app = express();
+// const database = require('./public/js/database.js')
+// const express = require('express');
+
+import database from './public/js/database.js'
+import express from 'express';
+const app = new express();
 
 app.use(express.static('./public'));
 app.use(express.json())
