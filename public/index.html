@@ -8,7 +8,6 @@
 	<link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
 
 	<link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
-	<script type="module" src="./js/index.js"></script>
 	<script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
 	<title>Cine - FECOMP</title>
 </head>
@@ -21,6 +20,7 @@
             <ul>
                 <a href="telaLogin.html" id="nomeUsuario"></a>
             </ul>
+            <img id="imgSair" src="images/sair.png" alt="user">
         </div>
     </header>
 
@@ -42,20 +42,22 @@
     </div>
 
     <div class="conteudo">
-        <div id="cartaz" onclick="baCartaz()">EM CARTAZ</div>
+        <div id="emCartaz">EM CARTAZ</div>
         <div id="barraCartaz"></div>
-        <div id="breve" onclick="baBreve()">EM BREVE</div>
+        <div id="emBreve">EM BREVE</div>
         <div id="barraBreve"></div>
         <div class="container">
 
             <div class=".botao-movimentoEsq">
-                <img id="imgesq" src="images/Vector 2.svg" onclick="moverDireita()" />
+                <img id="botaoEsquerdo" src="images/Vector 2.svg"/>
 
             </div>
 
-            <div class="filme1 item" onclick="executaAcao()">
+            <div class="filme1 item" id="cartaz1">
                 <img src="images/filme.jpg" alt="Filme 1" />
-                <div id="f1" onclick="executaAcao()">JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES</div>
+                <div id="f1">
+                    JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES
+                </div>
             </div>
 
             <div class="filme2 item">
@@ -74,7 +76,7 @@
             </div>
 
             <div class="botao-movimentoDir">
-                <img id="imgdir" src="images/Vector 1.svg" onclick="moverEsquerda()" />
+                <img id="botaoDireito" src="images/Vector 1.svg"/>
             </div>
         </div><!--fim div container-->
 
@@ -99,6 +101,37 @@
         </aside>
     </div> <!--fim div contato-->
 
+    <script type="module">
+        import funcoes from './js/index.js';
+        import login from './js/login.js';
+
+        const funcoesMain = {
+            moverDireita: funcoes.moverDireita,
+            moverEsquerda: funcoes.moverEsquerda,
+            selecionarFilme: funcoes.executaAcao,
+            emCartaz: funcoes.baCartaz,
+            emBreve: funcoes.baBreve,
+            logoff: login.logoff
+        }
+
+        function salvarId(id){
+            sessionStorage.setItem('idFilmeSelecionado', id)
+        }
+
+	    document.getElementById('cartaz1').addEventListener('click', function(){
+            const idFilme = this.id
+            salvarId(idFilme)
+            funcoesMain.selecionarFilme(idFilme)
+        });
+
+        document.getElementById('botaoEsquerdo').addEventListener('click', funcoesMain.moverDireita);	
+	    document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
+	    document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
+	    document.getElementById('emCartaz').addEventListener('click', funcoesMain.emCartaz);
+	    document.getElementById('emBreve').addEventListener('click', funcoesMain.emBreve);
+
+	    document.getElementById('imgSair').addEventListener('click', funcoesMain.logoff);
+    </script>
 </body>
 
 </html>

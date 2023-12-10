@@ -26,6 +26,9 @@ function cadastrarUsuario(){
 	.then(data => {
 		console.log(data);
 		
+		if(data.sucess){
+			window.location.href = '/index.html';
+		}
 		if(data.error){
 			window.alert(data.message)
 		}
@@ -70,6 +73,14 @@ function fazerLogin(){
    });
 }
 
+function logoff(){
+	const nomeUsuario = sessionStorage.getItem('nomeUsuario')
+	if(nomeUsuario){
+		sessionStorage.removeItem('nomeUsuario')
+		window.location.href = '/index.html';
+	}
+}
+
 function redefinirSenha(){
 	console.log('implementar redefinição de senha.')
 }
@@ -101,6 +112,7 @@ function mouseoutPass2(obj){
 export default {
 	cadastrarUsuario,
 	fazerLogin,
+	logoff,
 	redefinirSenha,
 	mouseoverPass,
 	mouseoutPass,

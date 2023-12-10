@@ -115,6 +115,11 @@ body > .navmain {
     vertical-align: middle; /* Para alinhar verticalmente ao centro */
 }
 
+#imgSair {
+    display: none;
+    margin-left: 52%;
+}
+
 .conteudo{
     position: relative;
     background-color: rgb(40, 40, 40);
@@ -131,7 +136,7 @@ body > .navmain {
 
 }
 
-#cartaz, #breve {
+#emCartaz, #emBreve {
     position: absolute;
     width: 107px; 
     height: 25px; 
@@ -146,10 +151,10 @@ body > .navmain {
     top: 2z0px; 
     
 }
-#cartaz{
+#emCartaz{
     left: 40%; 
 }
-#breve{
+#emBreve{
     left: 50%; 
 }
 #barraCartaz, #barraBreve {
@@ -179,8 +184,8 @@ body > .navmain {
     margin-left: 1065px;
 }
 
-#imgdir,
-#imgesq {
+#botaoEsquerdo,
+#botaoDireito {
     width: 24px;
     height: auto;
     cursor: pointer;

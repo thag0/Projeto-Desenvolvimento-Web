@@ -7,19 +7,29 @@
     <link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
     <link rel="stylesheet" type="text/css" href="./css/styleFilme.css">
-    <script type="text/javascript" src="./js/jsPrincipal.js"></script>
-    <script type="text/javascript" src="./js/pagFilme.js"></script>
+    <script type="module" src="./js/index.js"></script>
+    <script type="module" src="./js/pagFilme.js"></script>
     <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
     <title>Cine - FECOMP</title>
 </head>
 <body>
+    <script type="module">
+        import login from './js/login.js';
+
+        const funcoesLogin = {
+            logoff: login.logoff
+        }
+
+	    document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
+    </script>
     <header class="cabeca">
         <a href="index.html"><img src="images/logo.png" alt="imagem"></a>
         <div class="login-cadastro">
             <img id="user" src="images/user.png" alt="user">
             <ul>
-                <a href="telaLogin.html">Faça seu login ou cadastre-se</a>
+                <a href="telaLogin.html" id="nomeUsuario"></a>
             </ul>
+            <img id="imgSair" src="images/sair.png" alt="user">
         </div>
     </header>
     <div class="navmain">
@@ -48,21 +58,104 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
               <span class="close">&times;</span>
-                <div>
-                    <h1>Escolha sua sessão!</h1>
-                    <button>SALA 1</button>
-                    <button>SALA 2</button>
-                    
+              <div class="movie-container">
+                <label>Filme selecionado: </label>
+                <select id="movie">
+                  <option value="10">Jogos Vorazes ($10)</option>
+                </select>
+              </div>
+          
+              <ul class="showcase">
+                <li>
+                  <div class="seat"></div>
+                  <small>N/A</small>
+                </li>
+          
+                <li>
+                  <div class="seat selected"></div>
+                  <small>Selecionado</small>
+                </li>
+          
+                <li>
+                  <div class="seat occupied"></div>
+                  <small>Ocupado</small>
+                </li>
+              </ul>
+          
+              <div class="container3">
+                <div class="screen">
+                Tela
                 </div>
-                <div class="sala">
-                    <div>a1</div>
-                    <div>a2</div>
-                    <div>a3</div>
-                    <div>a4</div>
-                    <div>a5</div>
-                    <div>a6</div>
-                    <div>a7</div>
-                    <div>a8</div>
+                <div class="row">
+                  <div class="seat">A1</div>
+                  <div class="seat">A2</div>
+                  <div class="seat">A3</div>
+                  <div class="seat">A4</div>
+                  <div class="seat">A5</div>
+                  <div class="seat">A6</div>
+                  <div class="seat">A7</div>
+                  <div class="seat">A8</div>
+                </div>
+                <div class="row">
+                  <div class="seat">B1</div>
+                  <div class="seat">B2</div>
+                  <div class="seat">B3</div>
+                  <div class="seat occupied">B4</div>
+                  <div class="seat occupied">B5</div>
+                  <div class="seat">B6</div>
+                  <div class="seat">B7</div>
+                  <div class="seat">B8</div>
+                </div>
+          
+                <div class="row">
+                    <div class="seat">C1</div>
+                    <div class="seat">C2</div>
+                    <div class="seat">C3</div>
+                    <div class="seat">C4</div>
+                    <div class="seat">C5</div>
+                    <div class="seat">C6</div>
+                    <div class="seat occupied">C7</div>
+                    <div class="seat occupied">C8</div>
+                </div>
+          
+                <div class="row">
+                  <div class="seat">D1</div>
+                  <div class="seat">D2</div>
+                  <div class="seat">D3</div>
+                  <div class="seat">D4</div>
+                  <div class="seat">D5</div>
+                  <div class="seat">D6</div>
+                  <div class="seat">D7</div>
+                  <div class="seat">D8</div>
+                </div>
+          
+                <div class="row">
+                  <div class="seat">E1</div>
+                  <div class="seat">E2</div>
+                  <div class="seat">E3</div>
+                  <div class="seat occupied">E4</div>
+                  <div class="seat occupied">E5</div>
+                  <div class="seat">E6</div>
+                  <div class="seat">E7</div>
+                  <div class="seat">E8</div>
+                </div>
+          
+                <div class="row">
+                  <div class="seat">F1</div>
+                  <div class="seat">F2</div>
+                  <div class="seat">F3</div>
+                  <div class="seat">F4</div>
+                  <div class="seat occupied">F5</div>
+                  <div class="seat occupied">F6</div>
+                  <div class="seat occupied">F7</div>
+                  <div class="seat">F8</div>
+                </div>
+                
+          
+              <p class="text">
+                Você selecionou <span id="count">0</span> assentos R$<span id="total">0</span>
+              </p>
+              <script src="./js/pagFilme.js"></script>
                     
                 </div>
             </div>

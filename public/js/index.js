@@ -17,6 +17,8 @@ const nomeUsuario = sessionStorage.getItem('nomeUsuario')
 const elemNomeUsuario = document.getElementById("nomeUsuario")
 if(elemNomeUsuario){
 	if(nomeUsuario){
+		var imagem = document.getElementById('imgSair')
+		imagem.style.display = 'block'
 		elemNomeUsuario.textContent = `Olá, ${nomeUsuario}`
 
 	}else{
@@ -26,11 +28,7 @@ if(elemNomeUsuario){
 
 // -------------
 
-function login(){
-	location.href = "telaLogin.html"
-}
-
-function executaAcao(){
+function executaAcao(idFilme){
 	location.href = "pagFilme.html";
 }
 
@@ -65,7 +63,6 @@ function moverEsquerda(){
 }
 
 export default {
-	Login: login,
 	executaAcao,
 	baCartaz,
 	baBreve,
