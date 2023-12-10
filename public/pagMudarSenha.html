@@ -5,10 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="images/LOGO.ico" type="image/x-icon">
-    <script type="text/javascript" src="./js/login.js"></script>
+    <script type="module" src="./js/login.js"></script>
     <title>Trocar Senha</title>
 </head>
 <body>
+	<script type="module">
+		import login from '/js/login.js'
+
+		const funcoesRedefinir = {
+			redefinirSenha: login.redefinirSenha,
+			voltar: login.voltar
+		}
+
+		document.getElementById('botaoConfirmar').addEventListener('click', funcoesRedefinir.redefinirSenha);	
+	    document.getElementById('botaoVoltar').addEventListener('click', funcoesRedefinir.voltar);
+	</script>
     <div class="container">
         <h2>Mudar Senha</h2>
         <form action="index.html" method="post">
@@ -19,8 +30,12 @@
             </div>
 
             <div class="center">
-                <button type="button" onclick="Nova()">Confirmar</button>
-                <button type="button" onclick="Voltar()">Voltar</button>
+                <button type="button" id="botaoConfirmar">
+                    Confirmar
+                </button>
+                <button type="button" id="botaoVoltar">
+                    Voltar
+                </button>
             </div>
         </form>
  

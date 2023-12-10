@@ -5,6 +5,7 @@
 	margin: 0;
 	padding: 0;
     font-family: Jost,Arial, "Helvetica Neue", Helvetica, sans-serif;
+
 }
 body{
     display: flex;
@@ -14,16 +15,14 @@ body{
     background-color: rgb(61, 179, 245);
 }
 body > .navmain {
+    background-color:rgb(6, 163, 252);
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap; /* Permite a quebra de linha para os elementos */
     height: 40px; /* Altura automática para acomodar os elementos */
-}
-.principal{
-
-    align-items: center;
-
+    text-transform: uppercase;
+    padding:0% 2% 0% 10%;
 }
 .cabeca{
     display: flex;
@@ -35,13 +34,6 @@ body > .navmain {
     margin-left: 30%;
 }
 
-.navmain{
-    padding: 0%;
-    background-color: rgb(6, 163, 252);
-    height: 40px;
-    width:100%;
-    text-transform: uppercase;
-}
 .navegacao ul li{
     cursor: pointer;
 	float: left;
@@ -53,7 +45,7 @@ body > .navmain {
 	position: relative;
 	font-weight: bold; 	
 }
-.navegacao  nav ul li a {
+.navegacao ul li a {
 	color: white;
 	text-decoration: none; 
 }
@@ -63,20 +55,20 @@ body > .navmain {
 	background: rgba(0, 0, 0, 0.205);
 	color: white;
 }
-.navegacao  nav ul li a:hover {
+.navegacao ul li a:hover {
 	color:white;
 }
 
-.navegacao  nav ul ul li:hover a{
+.navegacao ul ul li:hover a{
 	background: rgba(0, 0, 0, 0.326);
 	
 }
-.navegacao  nav ul ul li a {
+.navegacao ul ul li a {
 	color: black;
 	text-decoration: none;
       
 }
-.navegacao  nav ul ul li a:hover {
+.navegacao ul ul li a:hover {
 	color: white;
 }
 
@@ -94,8 +86,9 @@ body > .navmain {
 	transition:  .6s;
 }
 .login-cadastro {
+    margin-left: 70%;
     display: flex;
-    width: 8%;
+    width: 12%;
     align-items: center;
     overflow-wrap: break-word;
     text-transform: uppercase;
@@ -104,25 +97,24 @@ body > .navmain {
 .login-cadastro ul{
     width: 7%;
     position: absolute;
-    left: 1070px;    
-    margin-left: 10px;
-    text-align: justify;
     font-size: 10px;
     overflow-wrap: break-word;
+    float: left;/* ou 'float: left;' */
+    margin-left: 40px; /* Ajuste a margem conforme necessário */
+    vertical-align: middle; /* Para alinhar verticalmente ao centro */
 }
 
 .login-cadastro ul a {
     color: white;
 }
-#user {
+.login-cadastro img{
     cursor: pointer;
     width: 37px; 
     height: 37px; 
-    left: 1039px; 
-    top: 34px; 
-    position: absolute; 
-    border-radius: 7px;
+    display: inline-block; /* ou use 'float: left;' */
+    vertical-align: middle; /* Para alinhar verticalmente ao centro */
 }
+
 .conteudo{
     position: relative;
     background-color: rgb(40, 40, 40);
@@ -155,16 +147,16 @@ body > .navmain {
     
 }
 #cartaz{
-    left: 387px; 
+    left: 40%; 
 }
 #breve{
-    left: 760px; 
+    left: 50%; 
 }
 #barraCartaz, #barraBreve {
     position: absolute;
     width: 107px; 
     height: 3px; 
-    top: 50px;  
+    top: 9%;  
     background: #3DB3F5; 
     border-radius: 2px;
     /* Posicionamento e estilos conforme necessário */
@@ -172,11 +164,11 @@ body > .navmain {
 
 #barraCartaz{
     display: block;
-    left: 386px; 
+    left: 40%; 
 }
 #barraBreve{
     display: none;
-    left: 756px; 
+    left: 50%; 
 }
 
 .botao-movimentoEsq {

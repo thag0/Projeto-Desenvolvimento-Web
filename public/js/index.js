@@ -1,13 +1,13 @@
 const primeiraVisita = sessionStorage.getItem('firstVisit') === null
 
 // Mostrar nome do usuário logado
-if (primeiraVisita) {
+if (primeiraVisita){
 	localStorage.removeItem('nomeUsuario')
 	sessionStorage.setItem('firstVisit', 'true')
 }
 
 // Limpar valores locais quando fechar a aba
-window.addEventListener('beforeunload', function () {
+window.addEventListener('beforeunload', function (){
 	sessionStorage.removeItem('firstvisit')
 	localStorage.removeItem('nomeUsuario')
 });
@@ -15,26 +15,26 @@ window.addEventListener('beforeunload', function () {
 //mostrar mensagem dinamicamente
 const nomeUsuario = sessionStorage.getItem('nomeUsuario')
 const elemNomeUsuario = document.getElementById("nomeUsuario")
-if (elemNomeUsuario) {
-	if (nomeUsuario) {
+if(elemNomeUsuario){
+	if(nomeUsuario){
 		elemNomeUsuario.textContent = `Olá, ${nomeUsuario}`
 
-	} else {
+	}else{
 		elemNomeUsuario.textContent = "Faça login ou cadastre-se"
 	}
 }
 
 // -------------
 
-function Login() {
+function login(){
 	location.href = "telaLogin.html"
 }
 
-function executaAcao() {
+function executaAcao(){
 	location.href = "pagFilme.html";
 }
 
-function baCartaz() {
+function baCartaz(){
 	var cartaz = document.getElementById("barraCartaz");
 	var breve = document.getElementById("barraBreve");
 
@@ -42,7 +42,7 @@ function baCartaz() {
 	breve.style.display = "none";
 }
 
-function baBreve() {
+function baBreve(){
 	var cartaz = document.getElementById("barraCartaz");
 	var breve = document.getElementById("barraBreve");
 
@@ -50,22 +50,22 @@ function baBreve() {
 	cartaz.style.display = "none";
 }
 
-function moverDireita() {
+function moverDireita(){
 	const container = document.querySelector('.container');
 	const filmes = container.querySelectorAll('.item');
 	const ultimoFilme = filmes[filmes.length - 1];
 	container.insertBefore(ultimoFilme, filmes[0]);
 }
 
-function moverEsquerda() {
+function moverEsquerda(){
 	const container = document.querySelector('.container');
 	const filmes = container.querySelectorAll('.item');
 	const primeiroFilme = filmes[0];
 	container.appendChild(primeiroFilme);
 }
 
-module.exports = {
-	Login,
+export default {
+	Login: login,
 	executaAcao,
 	baCartaz,
 	baBreve,

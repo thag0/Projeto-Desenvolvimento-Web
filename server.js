@@ -33,17 +33,28 @@ app.get('/consulta', (req, res) => {
 });
 
 app.post('/cadastrar-usuario', (req, res) => {
-   const { nome, email, senha } = req.body;
+   const { 
+      nome, 
+      email, 
+      senha 
+   } = req.body;
 
    if(!nome || !email || !senha){
-      return res.status(400).json({ error: 'Por favor, preencha todos os campos.' });
+      return res.status(400).json({ 
+         error: true,
+         message: 'Por favor, preencha todos os campos'
+      });
    }
 
    const queryVerificarEmail = `SELECT * FROM usuarios WHERE email = '${email}'`;
    database.query(queryVerificarEmail, (err, result) => {
       if(err){
-         console.error('(server) Erro ao verificar e-mail existente:', err);
-         return res.status(500).json({ error: 'Erro ao verificar e-mail existente.' });
+         const mensagem = 'Erro ao verificar e-mail existente'
+         console.error('(server) ', mensagem, err);
+         return res.status(500).json({ 
+            error: 'Erro ao verificar e-mail existente.',
+            message: mensagem
+         });
       }
 
       if(result.length > 0){
@@ -56,15 +67,19 @@ app.post('/cadastrar-usuario', (req, res) => {
       const queryCadastrar = `INSERT INTO usuarios (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}')`;
       database.query(queryCadastrar, (err, result) => {
          if(err){
-            console.error('(server) Erro ao cadastrar usuário:', err);
+            const mensagem = 'Erro ao verificar e-mail existente'
+            console.error('(server) ', mensagem, err);
             return res.status(500).json({ 
-					error: 'Erro ao cadastrar usuário.' 
+					error: true,
+               message: mensagem
 				});
          }
 
-         console.log('(server) Usuário cadastrado com sucesso.');
+         const mensagem = 'Usuário cadastrado com sucesso.'
+         console.log('(server) ', mensagem);
          res.json({
-            sucess: true 
+            sucess: true,
+            message: mensagem
          });
       });
    });
@@ -87,7 +102,7 @@ app.post('/verificar-login', (req, res) => {
       }
 
       if(result.length > 0){
-         console.log('(server) Login bem-sucedido.');
+         console.log(`(server) Usuário '${result[0].nome}' logado.`);
          const nomeUsuario = result[0].nome
          res.json({
             login: true,

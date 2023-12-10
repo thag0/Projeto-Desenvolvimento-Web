@@ -30,7 +30,6 @@ function cadastrarUsuario(){
 			window.alert(data.message)
 		}
 
-		window.location.href = '/index.html'
 	})
 	.catch(error => {
 		console.error('Erro ao cadastrar usuário:', error);
@@ -71,6 +70,10 @@ function fazerLogin(){
    });
 }
 
+function redefinirSenha(){
+	console.log('implementar redefinição de senha.')
+}
+
 function mouseoverPass(obj){
 	var obj = document.getElementById('senha');
 	obj.type = "text";
@@ -98,6 +101,7 @@ function mouseoutPass2(obj){
 export default {
 	cadastrarUsuario,
 	fazerLogin,
+	redefinirSenha,
 	mouseoverPass,
 	mouseoutPass,
 	voltar,

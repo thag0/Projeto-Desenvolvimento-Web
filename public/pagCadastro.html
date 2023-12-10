@@ -7,10 +7,22 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="images/LOGO.ico" type="image/x-icon">
 	<title>Cadastro</title>
-	<script type="module" src="/public/js/login.js"></script>
+	<!-- <script type="module" src="/public/js/login.js"></script> -->
+	<script type="module" src="./js/login.js"></script>
 </head>
 
 <body>
+	<script type="module">
+		import login from '/js/login.js'
+
+		const funcoesCadastro = {
+			fazerCadastro: login.cadastrarUsuario,
+			voltar: login.voltar
+		}
+
+		document.getElementById('botaoCadastrar').addEventListener('click', funcoesCadastro.fazerCadastro);	
+	   document.getElementById('botaoVoltar').addEventListener('click', funcoesCadastro.voltar);
+	</script>
 	<div class="container">
 		<h2>Cadastre-se</h2>
 		<form id="formCadastro" action="index.html" method="post">
@@ -27,17 +39,15 @@
 			<div class="input-field">
 				<input type="password" id="senha" placeholder="alguma coisa">
 				<label for="senha">Senha:</label>
-				<img src="images/olho.png" onclick="mouseoverPass();" onmouseout="mouseoutPass();" id="olho" class="olho">
 			</div>
 			<div class="input-field">
 				<input type="password" id="confirmar_senha" placeholder="alguma coisa">
 				<label for="senha">Confirmar Senha:</label>
-				<img src="images/olho.png" onclick="mouseoverPass2();" onmouseout="mouseoutPass2();" id="olho" class="olho">
 			</div>
 
 			<div class="center">
-				<button type="button" onclick="cadastrarUsuario()">Cadastrar</button>
-				<button type="button" onclick="voltar()">Voltar</button>
+				<button type="button" id="botaoCadastrar">Cadastrar</button>
+				<button type="button" id="botaoVoltar">Voltar</button>
 			</div>
 	</div>
 	</form>
