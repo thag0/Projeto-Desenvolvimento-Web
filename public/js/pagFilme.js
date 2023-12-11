@@ -27,15 +27,22 @@ function recuperarFilmes(idCartaz){
 			const elementoFilmeGenero = document.getElementById('filmeGenero')
 			const elementoFilmeDuracao = document.getElementById('filmeDuracao')
 			const elementoFilmeSinopse = document.getElementById('filmeSinopse')
-
+			
 			const elementoSalaTitulo = document.getElementById('salaTitulo')
 			
+			//informações
 			elementoFilmeTitulo.innerHTML = filmes[0].nome
 			elementoFilmeElenco.innerHTML = filmes[0].elenco
 			elementoFilmeDirecao.innerHTML = filmes[0].direcao
 			elementoFilmeGenero.innerHTML = filmes[0].genero
 			elementoFilmeDuracao.innerHTML = filmes[0].duracao
 			elementoFilmeSinopse.innerHTML = filmes[0].sinopse
+			
+			//imagens
+			const elementoFilmeClassificacao = document.getElementById('filmeClassificacao')
+			const elementoFilmeImagem = document.getElementById('filmeImagem')
+			elementoFilmeClassificacao.src = filmes[0].caminho_classificacao 
+			elementoFilmeImagem.src = filmes[0].caminho_imagem
 
 			elementoSalaTitulo.innerHTML = filmes[0].nome
       })
