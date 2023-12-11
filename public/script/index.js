@@ -1,25 +1,18 @@
 import funcoes from '/script/modulos/funcoes.mjs';
 import login from '/script/modulos/login.mjs';
 
-//informações do usuário logado
-const elmUsuarioLogado = sessionStorage.getItem('usuarioLogado')
-if(elmUsuarioLogado){
-   var elmTextoLogin = document.getElementById('usuarioLogado')
-   elmTextoLogin.removeAttribute('href')
-   
-}else{
-   var elmTextoLogin = document.getElementById('usuarioLogado')
-   elmTextoLogin.href = "pagLogin.html"
-}
-
 const funcoesMain = {
    moverDireita: funcoes.moverDireita,
    moverEsquerda: funcoes.moverEsquerda,
    selecionarFilme: funcoes.selecionarFilme,
    emCartaz: funcoes.barraCartaz,
    emBreve: funcoes.barraBreve,
-   logoff: login.logoff
+   logoff: login.logoff,
+   usuarioLogado: funcoes.usuarioLogado
 }
+
+funcoesMain.usuarioLogado()
+
 
 function salvarId(id){
    sessionStorage.setItem('idFilmeSelecionado', id)

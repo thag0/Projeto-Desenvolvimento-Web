@@ -32,7 +32,6 @@ function cadastrarUsuario(){
 		if(data.error){
 			window.alert(data.message)
 		}
-
 	})
 	.catch(error => {
 		console.error('Erro ao cadastrar usuário:', error);
@@ -82,9 +81,17 @@ function fazerLogin(){
 function logoff(){
 	const pagina = window.location.href
 	const nomeUsuario = sessionStorage.getItem('usuarioLogado')
+	const usuarioAdmin = sessionStorage.getItem('usuarioAdmin')
 	if(nomeUsuario){
 		sessionStorage.removeItem('usuarioLogado')
-		window.location.href = pagina;
+
+		if(usuarioAdmin){
+			sessionStorage.removeItem('usuarioAdmin')
+			window.location.href = window.location.href = 'index.html';
+		}else{
+			window.location.href = pagina;
+		}
+
 	}
 }
 

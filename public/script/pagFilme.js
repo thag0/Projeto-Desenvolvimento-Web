@@ -1,21 +1,16 @@
-const usuarioLogado = sessionStorage.getItem('usuarioLogado')
-const elemUsuarioLogado = document.getElementById("usuarioLogado")
-if(elemUsuarioLogado){
-	if(usuarioLogado){
-		var imagem = document.getElementById('imgSair')
-		imagem.style.display = 'block'
-		elemUsuarioLogado.textContent = `Olá, ${usuarioLogado}`
+import login from '/script/modulos/login.mjs';
+import filme from '/script/modulos/filme.mjs';
+import funcoes from './modulos/funcoes.mjs'
 
-		var elmTextoLogin = document.getElementById('usuarioLogado')
-		elmTextoLogin.removeAttribute('href')
-
-	}else{
-		elemUsuarioLogado.textContent = "Faça login ou cadastre-se"
-
-		var elmTextoLogin = document.getElementById('usuarioLogado')
-		elmTextoLogin.href = "pagLogin.html"
-	}
+const funcoesLogin = {
+	logoff: login.logoff
 }
+
+const funcoesRecuperar = {
+	recuperarFilme: filme.recuperarFilme
+}
+
+funcoes.usuarioLogado()
 
 document.addEventListener("DOMContentLoaded", function () {
 	var modal = document.getElementById('myModal');
@@ -111,20 +106,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// ----------------
-
-import login from '/script/modulos/login.mjs';
-import filme from '/script/modulos/filme.mjs';
-
-const funcoesLogin = {
-	logoff: login.logoff
-}
-
-const funcoesRecuperar = {
-	recuperarFilme: filme.recuperarFilme
-}
-
 document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
-
 const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
 funcoesRecuperar.recuperarFilme(idCartaz)

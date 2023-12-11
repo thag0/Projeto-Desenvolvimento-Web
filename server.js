@@ -140,3 +140,47 @@ app.get('/recuperar-filme', (req, res) => {
       }
    });
 });
+
+app.get('/recuperar-todos-filmes', (req, res) => {
+   const queryBuscarFilme = `SELECT * FROM FILMES`;
+   database.query(queryBuscarFilme, (err, result) => {
+      if(err){
+         console.log(err);
+         res.status(statusErro).send('Erro ao executar a consulta no banco de dados.');
+      
+      }else{
+         const filmes = result.map(filme => ({
+            id: filme.id_filme,
+            nome: filme.nome,
+            elenco: filme.elenco,
+            direcao: filme.direcao,
+            genero: filme.genero,
+            duracao: filme.duracao,
+            sinopse: filme.sinopse,
+            caminho_imagem: filme.caminho_imagem,
+            caminho_classificacao: filme.caminho_classificacao,
+         }));
+
+         res.json({
+            type: "filmes",
+            message: filmes
+         });
+      }
+   });
+});
+
+app.get('/recuperar-todos-usuarios', (req, res) => {
+   const queryBuscarFilme = `SELECT * FROM USUARIOS`;
+   database.query(queryBuscarFilme, (err, result) => {
+      if(err){
+         console.log(err);
+         res.status(statusErro).send('Erro ao executar a consulta no banco de dados.');
+      
+      }else{
+         res.json({
+            type: "usuarios",
+            message: result
+         });
+      }
+   });
+});
