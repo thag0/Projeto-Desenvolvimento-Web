@@ -1,6 +1,17 @@
 import funcoes from '/script/modulos/funcoes.mjs';
 import login from '/script/modulos/login.mjs';
 
+//informações do usuário logado
+const elmUsuarioLogado = sessionStorage.getItem('usuarioLogado')
+if(elmUsuarioLogado){
+   var elmTextoLogin = document.getElementById('usuarioLogado')
+   elmTextoLogin.removeAttribute('href')
+   
+}else{
+   var elmTextoLogin = document.getElementById('usuarioLogado')
+   elmTextoLogin.href = "pagLogin.html"
+}
+
 const funcoesMain = {
    moverDireita: funcoes.moverDireita,
    moverEsquerda: funcoes.moverEsquerda,
@@ -35,9 +46,11 @@ document.getElementById('cartaz4').addEventListener('click', function () {
    funcoesMain.selecionarFilme(idFilme)
 });
 
+
 document.getElementById('botaoEsquerdo').addEventListener('click', funcoesMain.moverDireita);
 document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
 document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
+
 document.getElementById('emCartaz').addEventListener('click', funcoesMain.emCartaz);
 document.getElementById('emBreve').addEventListener('click', funcoesMain.emBreve);
 

@@ -104,10 +104,11 @@ app.post('/verificar-login', (req, res) => {
 
       if(result.length > 0){
          console.log(`(server) Usuário '${result[0].nome}' logado.`);
-         const nomeUsuario = result[0].nome
+         const usuario = result[0]
          res.json({
             login: true,
-            nomeUsuario: nomeUsuario
+            nomeUsuario: usuario.nome,
+            admin: usuario.admin
          });
       
       }else{

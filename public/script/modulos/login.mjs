@@ -61,7 +61,13 @@ function fazerLogin(){
 			const nomeUsuario = document.getElementById('nomeLogin')
          if(nomeUsuario){
 				sessionStorage.setItem('usuarioLogado', data.nomeUsuario)
-            window.location.href = '/index.html';
+				if(data.admin){
+					sessionStorage.setItem('usuarioAdmin', data.admin)
+					window.location.href = '/pagAdmin.html'
+				
+				}else{
+					window.location.href = '/index.html'
+				}
 			}
       
 		}else{

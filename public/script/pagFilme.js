@@ -6,8 +6,14 @@ if(elemUsuarioLogado){
 		imagem.style.display = 'block'
 		elemUsuarioLogado.textContent = `Olá, ${usuarioLogado}`
 
+		var elmTextoLogin = document.getElementById('usuarioLogado')
+		elmTextoLogin.removeAttribute('href')
+
 	}else{
 		elemUsuarioLogado.textContent = "Faça login ou cadastre-se"
+
+		var elmTextoLogin = document.getElementById('usuarioLogado')
+		elmTextoLogin.href = "pagLogin.html"
 	}
 }
 
