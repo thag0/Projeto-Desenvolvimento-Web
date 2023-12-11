@@ -15,7 +15,7 @@ if(elmUsuarioLogado){
 const funcoesMain = {
    moverDireita: funcoes.moverDireita,
    moverEsquerda: funcoes.moverEsquerda,
-   selecionarFilme: funcoes.executaAcao,
+   selecionarFilme: funcoes.selecionarFilme,
    emCartaz: funcoes.barraCartaz,
    emBreve: funcoes.barraBreve,
    logoff: login.logoff
@@ -47,9 +47,8 @@ document.getElementById('cartaz4').addEventListener('click', function () {
 });
 
 
-document.getElementById('botaoEsquerdo').addEventListener('click', funcoesMain.moverDireita);
-document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
-document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
+document.getElementById('botaoMoverEsquerda').addEventListener('click', funcoesMain.moverDireita);
+document.getElementById('botaoMoverDireita').addEventListener('click', funcoesMain.moverEsquerda);
 
 document.getElementById('emCartaz').addEventListener('click', funcoesMain.emCartaz);
 document.getElementById('emBreve').addEventListener('click', funcoesMain.emBreve);

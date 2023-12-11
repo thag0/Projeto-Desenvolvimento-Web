@@ -28,7 +28,7 @@ if(elemUsuarioLogado){
 
 // -------------
 
-function executaAcao(idFilme){
+function selecionarFilme(idFilme){
 	window.location.href = "pagFilme.html";
 }
 
@@ -63,7 +63,7 @@ function moverEsquerda(){
 }
 
 export default {
-	executaAcao,
+	selecionarFilme,
 	barraCartaz,
 	barraBreve,
 	moverDireita,

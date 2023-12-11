@@ -184,8 +184,8 @@ body > .navmain {
     margin-left: 1065px;
 }
 
-#botaoEsquerdo,
-#botaoDireito {
+#botaoMoverEsquerda,
+#botaoMoverDireita {
     width: 24px;
     height: auto;
     cursor: pointer;
