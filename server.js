@@ -117,3 +117,25 @@ app.post('/verificar-login', (req, res) => {
       }
    });
 });
+
+app.get('/recuperar-filme', (req, res) => {
+   const idCartaz = req.query.idCartaz;
+
+   if (!idCartaz) {
+      res.status(400).send('O parâmetro idCartaz é obrigatório.');
+      return;
+   }
+
+   const sql = `SELECT * FROM FILMES WHERE id_filme = '${idCartaz}'`;
+
+   database.query(sql, (err, result) => {
+      if (err) {
+         console.log(err);
+         res.status(500).send('Erro ao executar a consulta no banco de dados.');
+      } else {
+         res.json({
+            message: result
+         });
+      }
+   });
+});

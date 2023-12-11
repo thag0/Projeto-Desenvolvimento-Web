@@ -50,29 +50,34 @@
 
             <div class=".botao-movimentoEsq">
                 <img id="botaoEsquerdo" src="images/Vector 2.svg"/>
-
             </div>
 
             <div class="filme1 item" id="cartaz1">
-                <img src="images/filme.jpg" alt="Filme 1" />
+                <img src="images/filme.jpg" alt="Filme 1"/>
                 <div id="f1">
                     JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES
                 </div>
             </div>
 
-            <div class="filme2 item">
+            <div class="filme2 item" id="cartaz2">
                 <img src="images/trolls.jpg" />
-                <div id="f2">TROLLS 3</div>
+                <div id="f2">
+                    TROLLS 3
+                </div>
             </div>
 
-            <div class="filme3 item">
+            <div class="filme3 item" id="cartaz3">
                 <img src="images/napoleao.jpg" />
-                <div id="f3">NAPOLEÃO</div>
+                <div id="f3">
+                    NAPOLEÃO
+                </div>
             </div>
 
-            <div class="filme4 item">
+            <div class="filme4 item" id="cartaz4">
                 <img src="images/msMarvel.jpg" />
-                <div id="f4">AS MARVELS</div>
+                <div id="f4">
+                    AS MARVELS
+                </div>
             </div>
 
             <div class="botao-movimentoDir">
@@ -119,6 +124,21 @@
         }
 
 	    document.getElementById('cartaz1').addEventListener('click', function(){
+            const idFilme = this.id
+            salvarId(idFilme)
+            funcoesMain.selecionarFilme(idFilme)
+        });
+	    document.getElementById('cartaz2').addEventListener('click', function(){
+            const idFilme = this.id
+            salvarId(idFilme)
+            funcoesMain.selecionarFilme(idFilme)
+        });
+	    document.getElementById('cartaz3').addEventListener('click', function(){
+            const idFilme = this.id
+            salvarId(idFilme)
+            funcoesMain.selecionarFilme(idFilme)
+        });
+	    document.getElementById('cartaz4').addEventListener('click', function(){
             const idFilme = this.id
             salvarId(idFilme)
             funcoesMain.selecionarFilme(idFilme)

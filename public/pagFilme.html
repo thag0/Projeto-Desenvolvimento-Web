@@ -1,228 +1,249 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
-    <link rel="stylesheet" type="text/css" href="./css/styleFilme.css">
-    <script type="module" src="./js/index.js"></script>
-    <script type="module" src="./js/pagFilme.js"></script>
-    <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
-    <title>Cine - FECOMP</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
+	<link rel="stylesheet" type="text/css" href="./css/styleFilme.css">
+	<script type="module" src="./js/index.js"></script>
+	<script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+	<title>Cine - FECOMP</title>
 </head>
+
 <body>
-    <script type="module">
-        import login from './js/login.js';
+	<script type="module">
+		import login from './js/login.js';
+		import pagFilme from './js/pagFilme.js';
 
-        const funcoesLogin = {
-            logoff: login.logoff
-        }
+		const funcoesLogin = {
+			logoff: login.logoff
+		}
 
-	    document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
-    </script>
-    <header class="cabeca">
-        <a href="index.html"><img src="images/logo.png" alt="imagem"></a>
-        <div class="login-cadastro">
-            <img id="user" src="images/user.png" alt="user">
-            <ul>
-                <a href="telaLogin.html" id="nomeUsuario"></a>
-            </ul>
-            <img id="imgSair" src="images/sair.png" alt="user">
-        </div>
-    </header>
-    <div class="navmain">
-        <div class="navegacao">
-            <header>
-                <nav>
-                    <ul>
-                        <li><a href="#">Inicio</a>
-                        </li>
-                        <li><a href="lista.html">Programação</a>
-                        </li>
-                        <li><a href="lista.html">Ingressos</a>
-                        </li>
-                        <li><a href="lista.html">Sobre o Cine FECOMP</a>
-                        </li>
-                        <li><a href="lista.html">Atendimento</a>
-                        </li>
-                    </ul>
-                </nav>	
-            </header>
-        </div> <!--fim da div main nav-->
-    </div>
+		const funcoesRecuperar = {
+			rec: pagFilme.recuperarFilmes
+		}
+
+		const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
+		funcoesRecuperar.rec(idCartaz)
+	</script>
+	<header class="cabeca">
+		<a href="index.html"><img src="images/logo.png" alt="imagem"></a>
+		<div class="login-cadastro">
+			<img id="user" src="images/user.png" alt="user">
+			<ul>
+				<a href="telaLogin.html" id="nomeUsuario"></a>
+			</ul>
+			<img id="imgSair" src="images/sair.png" alt="user">
+		</div>
+	</header>
+	<div class="navmain">
+		<div class="navegacao">
+			<header>
+				<nav>
+					<ul>
+						<li><a href="#">Inicio</a>
+						</li>
+						<li><a href="lista.html">Programação</a>
+						</li>
+						<li><a href="lista.html">Ingressos</a>
+						</li>
+						<li><a href="lista.html">Sobre o Cine FECOMP</a>
+						</li>
+						<li><a href="lista.html">Atendimento</a>
+						</li>
+					</ul>
+				</nav>
+			</header>
+		</div> <!--fim da div main nav-->
+	</div>
+
+	<div class="conteudo">
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<div class="movie-container">
+					<label>Filme selecionado: </label>
+					<select id="movie">
+						<option value="10" id="salaTitulo">Jogos Vorazes ($10)</option>
+					</select>
+				</div>
+
+				<ul class="showcase">
+					<li>
+						<div class="seat"></div>
+						<small>N/A</small>
+					</li>
+
+					<li>
+						<div class="seat selected"></div>
+						<small>Selecionado</small>
+					</li>
+
+					<li>
+						<div class="seat occupied"></div>
+						<small>Ocupado</small>
+					</li>
+				</ul>
+
+				<div class="container3">
+					<div class="screen">
+						Tela
+					</div>
+					<div class="row">
+						<div class="seat">A1</div>
+						<div class="seat">A2</div>
+						<div class="seat">A3</div>
+						<div class="seat">A4</div>
+						<div class="seat">A5</div>
+						<div class="seat">A6</div>
+						<div class="seat">A7</div>
+						<div class="seat">A8</div>
+					</div>
+					<div class="row">
+						<div class="seat">B1</div>
+						<div class="seat">B2</div>
+						<div class="seat">B3</div>
+						<div class="seat occupied">B4</div>
+						<div class="seat occupied">B5</div>
+						<div class="seat">B6</div>
+						<div class="seat">B7</div>
+						<div class="seat">B8</div>
+					</div>
+
+					<div class="row">
+						<div class="seat">C1</div>
+						<div class="seat">C2</div>
+						<div class="seat">C3</div>
+						<div class="seat">C4</div>
+						<div class="seat">C5</div>
+						<div class="seat">C6</div>
+						<div class="seat occupied">C7</div>
+						<div class="seat occupied">C8</div>
+					</div>
+
+					<div class="row">
+						<div class="seat">D1</div>
+						<div class="seat">D2</div>
+						<div class="seat">D3</div>
+						<div class="seat">D4</div>
+						<div class="seat">D5</div>
+						<div class="seat">D6</div>
+						<div class="seat">D7</div>
+						<div class="seat">D8</div>
+					</div>
+
+					<div class="row">
+						<div class="seat">E1</div>
+						<div class="seat">E2</div>
+						<div class="seat">E3</div>
+						<div class="seat occupied">E4</div>
+						<div class="seat occupied">E5</div>
+						<div class="seat">E6</div>
+						<div class="seat">E7</div>
+						<div class="seat">E8</div>
+					</div>
+
+					<div class="row">
+						<div class="seat">F1</div>
+						<div class="seat">F2</div>
+						<div class="seat">F3</div>
+						<div class="seat">F4</div>
+						<div class="seat occupied">F5</div>
+						<div class="seat occupied">F6</div>
+						<div class="seat occupied">F7</div>
+						<div class="seat">F8</div>
+					</div>
 
 
-    <div class="conteudo"> 
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-              <span class="close">&times;</span>
-              <div class="movie-container">
-                <label>Filme selecionado: </label>
-                <select id="movie">
-                  <option value="10">Jogos Vorazes ($10)</option>
-                </select>
-              </div>
-          
-              <ul class="showcase">
-                <li>
-                  <div class="seat"></div>
-                  <small>N/A</small>
-                </li>
-          
-                <li>
-                  <div class="seat selected"></div>
-                  <small>Selecionado</small>
-                </li>
-          
-                <li>
-                  <div class="seat occupied"></div>
-                  <small>Ocupado</small>
-                </li>
-              </ul>
-          
-              <div class="container3">
-                <div class="screen">
-                Tela
-                </div>
-                <div class="row">
-                  <div class="seat">A1</div>
-                  <div class="seat">A2</div>
-                  <div class="seat">A3</div>
-                  <div class="seat">A4</div>
-                  <div class="seat">A5</div>
-                  <div class="seat">A6</div>
-                  <div class="seat">A7</div>
-                  <div class="seat">A8</div>
-                </div>
-                <div class="row">
-                  <div class="seat">B1</div>
-                  <div class="seat">B2</div>
-                  <div class="seat">B3</div>
-                  <div class="seat occupied">B4</div>
-                  <div class="seat occupied">B5</div>
-                  <div class="seat">B6</div>
-                  <div class="seat">B7</div>
-                  <div class="seat">B8</div>
-                </div>
-          
-                <div class="row">
-                    <div class="seat">C1</div>
-                    <div class="seat">C2</div>
-                    <div class="seat">C3</div>
-                    <div class="seat">C4</div>
-                    <div class="seat">C5</div>
-                    <div class="seat">C6</div>
-                    <div class="seat occupied">C7</div>
-                    <div class="seat occupied">C8</div>
-                </div>
-          
-                <div class="row">
-                  <div class="seat">D1</div>
-                  <div class="seat">D2</div>
-                  <div class="seat">D3</div>
-                  <div class="seat">D4</div>
-                  <div class="seat">D5</div>
-                  <div class="seat">D6</div>
-                  <div class="seat">D7</div>
-                  <div class="seat">D8</div>
-                </div>
-          
-                <div class="row">
-                  <div class="seat">E1</div>
-                  <div class="seat">E2</div>
-                  <div class="seat">E3</div>
-                  <div class="seat occupied">E4</div>
-                  <div class="seat occupied">E5</div>
-                  <div class="seat">E6</div>
-                  <div class="seat">E7</div>
-                  <div class="seat">E8</div>
-                </div>
-          
-                <div class="row">
-                  <div class="seat">F1</div>
-                  <div class="seat">F2</div>
-                  <div class="seat">F3</div>
-                  <div class="seat">F4</div>
-                  <div class="seat occupied">F5</div>
-                  <div class="seat occupied">F6</div>
-                  <div class="seat occupied">F7</div>
-                  <div class="seat">F8</div>
-                </div>
-                
-          
-              <p class="text">
-                Você selecionou <span id="count">0</span> assentos R$<span id="total">0</span>
-              </p>
-              <script src="./js/pagFilme.js"></script>
-                    
-                </div>
-            </div>
-        </div>   
-        <div id="Titulo">
-            <H3>
-                JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES
-            </H3>
-        </div>
-        <div class="container2">
-            <div id="cartazF">
-                <img src="images/filme.jpg" alt="JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES">
-            </div>
+					<p class="text">
+						Você selecionou <span id="count">0</span> assentos R$<span id="total">0</span>
+					</p>
+					<script src="./js/pagFilme.js"></script>
 
-            <div class="informacoes">
-                <div class="info-container">
-                    <div class="btnEsc-container">
-                        <img src="images/classific.png" alt="">
-                        <button id="btnEscolher">Escolher Sala</button>
-                    </div>
+				</div>
+			</div>
+		</div>
+		<div id="Titulo">
+			<H3 id="filmeTitulo">
+				JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES
+			</H3>
+		</div>
+		<div class="container2">
+			<div id="cartazF">
+				<img src="images/filme.jpg" alt="JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES">
+			</div>
 
-                    
-                    <div class="info-item">
-                        <h2>Elenco: </h2>
-                        <h2 class="info-content">Rachel Zegler, Tom Blyth, Hunter Schafer, Peter Dinklage, Jason Schwartzman, Viola Davis</h2>
-                    </div>
-                    <div class="info-item">
-                        <h2>Direção:</h2>
-                        <h2 class="info-content">Francis Lawrence</h2>
-                    </div>
-                    <div class="info-item">
-                        <h2>Gênero:</h2>
-                        <h2 class="info-content">Ação/Aventura</h2>
-                    </div>
-                    <div class="info-item">
-                        <h2>Duração:</h2>
-                        <h2 class="info-content">2h38min</h2>
-                    </div>
-                    <div class="info-item">
-                        <h2>Sinopse:</h2>
-                        <h2 class="info-content">
-                            Antes de Katniss Everdeen, sua revolução e o envolvimento do 13 distrito, houve o Presidente Snow, ou melhor, 
-                            Coriolanus Snow. A Cantiga dos Pássaros e das Serpentes é a história do ditador de Panem antes de chegar ao 
-                            poder. Anos antes, Coriolanus Snow vivia na capital, nascido na grande casa de Snow, que não anda muito bem em 
-                            popularidade e financeiramente.
-                        </h2>
-                    </div>
-                </div>
-            </div>
-            
+			<div class="informacoes">
+				<div class="info-container">
+					<div class="btnEsc-container">
+						<img src="images/classific.png" alt="">
+						<button id="btnEscolher">Escolher Sala</button>
+					</div>
 
-        </div>
-    </div>
-    
-    <div class="contatos">
-        <aside>
-            <h3>Contatos</h3>
-            <ul>
-                <li><a href="https://www.facebook.com/cleber.almeida.79" target="_blank" rel="noopener noreferrer"><img  src="images/facebook.png"  alt="facebook">Facebook</a></li>
-                <li><a href="https://www.instagram.com/cleberton7/" target="_blank" rel="noopener noreferrer"><img src="images/insta.png"  alt="instagram">Instagram</a></li>
-                <li><a href="https://twitter.com/cleberton_de" target="_blank" rel="noopener noreferrer"><img src="images/ttr.png"  alt="twitter">Twitter</a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=5594984097379&text=Cleberton" target="_blank" rel="noopener noreferrer"><img  src="images/wpp.png"  alt="whatsapp">WhatsApp</a></li>
-                <li><a href="https://www.linkedin.com/in/cleberton-pereira-98867992/" target="_blank" rel="noopener noreferrer"><img  src="images/link.png"  alt="linkedin">LinkedIn</a></li>
-            </ul>
-        </aside>
-    </div> <!--fim div contato-->
+					<div class="info-item">
+						<h2>Elenco: </h2>
+						<h2 class="info-content" id="filmeElenco">
+							Rachel Zegler, Tom Blyth, Hunter Schafer, Peter Dinklage, Jason Schwartzman, Viola Davis
+						</h2>
+					</div>
+					<div class="info-item">
+						<h2>Direção:</h2>
+						<h2 class="info-content" id="filmeDirecao">
+							Francis Lawrence
+						</h2>
+					</div>
+					<div class="info-item">
+						<h2>Gênero:</h2>
+						<h2 class="info-content" id="filmeGenero">
+							Ação/Aventura
+						</h2>
+					</div>
+					<div class="info-item">
+						<h2>Duração:</h2>
+						<h2 class="info-content" id="filmeDuracao">
+							2h38min
+						</h2>
+					</div>
+					<div class="info-item">
+						<h2>Sinopse:</h2>
+						<h2 class="info-content" id="filmeSinopse">
+							Antes de Katniss Everdeen, sua revolução e o envolvimento do 13 distrito, houve o Presidente Snow,
+							ou melhor,
+							Coriolanus Snow. A Cantiga dos Pássaros e das Serpentes é a história do ditador de Panem antes de
+							chegar ao
+							poder. Anos antes, Coriolanus Snow vivia na capital, nascido na grande casa de Snow, que não anda
+							muito bem em
+							popularidade e financeiramente.
+						</h2>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+
+	<div class="contatos">
+		<aside>
+			<h3>Contatos</h3>
+			<ul>
+				<li><a href="https://www.facebook.com/cleber.almeida.79" target="_blank" rel="noopener noreferrer"><img
+							src="images/facebook.png" alt="facebook">Facebook</a></li>
+				<li><a href="https://www.instagram.com/cleberton7/" target="_blank" rel="noopener noreferrer"><img
+							src="images/insta.png" alt="instagram">Instagram</a></li>
+				<li><a href="https://twitter.com/cleberton_de" target="_blank" rel="noopener noreferrer"><img
+							src="images/ttr.png" alt="twitter">Twitter</a></li>
+				<li><a href="https://api.whatsapp.com/send?phone=5594984097379&text=Cleberton" target="_blank"
+						rel="noopener noreferrer"><img src="images/wpp.png" alt="whatsapp">WhatsApp</a></li>
+				<li><a href="https://www.linkedin.com/in/cleberton-pereira-98867992/" target="_blank"
+						rel="noopener noreferrer"><img src="images/link.png" alt="linkedin">LinkedIn</a></li>
+			</ul>
+		</aside>
+	</div> <!--fim div contato-->
 
 </body>
-</html>
 
+</html>
