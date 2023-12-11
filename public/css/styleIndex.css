@@ -241,6 +241,7 @@ body > .navmain {
     margin-left: 5%;
     margin-top: auto; /* Empurrar para a parte inferior */
 }
+
 .contatos aside h3{
     color: rgb(0, 0, 0);
 	font-size: 20px;
@@ -265,7 +266,27 @@ body > .navmain {
 	width:30px;
 }
 
+.listaContatos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.listaContatos ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listaContatos li {
+    margin-bottom: 5px;
+}
+
+.listaContatos a {
+    text-decoration: none;
+    color: black;
+}
 
 /* For smaller screens */
 @media only screen and (max-width: 600px) {

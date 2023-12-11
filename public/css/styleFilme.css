@@ -137,7 +137,6 @@ h2 {
 
 /* sala */
 
-
 .movie-container select {
   background-color: #fff;
   border: 0;
@@ -245,4 +244,28 @@ p.text {
 
 p.text span {
   color: #6feaf6;
+}
+
+/* contatos */
+
+.listaContatos{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.listaContatos ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listaContatos li {
+  margin-bottom: 5px;
+}
+
+.listaContatos a {
+  text-decoration: none;
+  color: black;
 }
