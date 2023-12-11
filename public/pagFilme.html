@@ -8,22 +8,21 @@
 	<link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
 	<link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
 	<link rel="stylesheet" type="text/css" href="./css/styleFilme.css">
-	<script type="module" src="./js/index.js"></script>
 	<script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
 	<title>Cine - FECOMP</title>
 </head>
 
 <body>
 	<script type="module">
-		import login from './js/login.js';
-		import pagFilme from './js/pagFilme.js';
+		import login from './script/login.mjs';
+		import filme from './script/filme.mjs';
 
 		const funcoesLogin = {
 			logoff: login.logoff
 		}
 
 		const funcoesRecuperar = {
-			rec: pagFilme.recuperarFilmes
+			rec: filme.recuperarFilme
 		}
 
 		const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
@@ -157,11 +156,9 @@
 						<div class="seat">F8</div>
 					</div>
 
-
 					<p class="text">
 						Você selecionou <span id="count">0</span> assentos R$<span id="total">0</span>
 					</p>
-					<script src="./js/pagFilme.js"></script>
 
 				</div>
 			</div>

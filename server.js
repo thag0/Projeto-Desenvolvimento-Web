@@ -1,7 +1,4 @@
-// const database = require('./public/js/database.js')
-// const express = require('express');
-
-import database from './public/js/database.js'
+import database from './public/script/database.mjs'
 import express from 'express';
 const app = new express();
 
@@ -14,12 +11,16 @@ app.listen(porta, () => {
 	console.log(`(server) Servidor rodando em http://localhost:${porta}`);
 });
 
+const statusErro = 500
+const statusAviso = 400
+
+//teste
 app.get('/consulta', (req, res) => {
    const q = 'SELECT * FROM teste'
 
    database.query(q, (err, result) => {
       if(err){
-         res.status(500).send('(server) Erro ao executar a consulta');
+         res.status(statusErro).send('(server) Erro ao executar a consulta');
       
 		}else{
 			if(result){
@@ -40,7 +41,7 @@ app.post('/cadastrar-usuario', (req, res) => {
    } = req.body;
 
    if(!nome || !email || !senha){
-      return res.status(400).json({ 
+      return res.status(statusAviso).json({ 
          error: true,
          message: 'Por favor, preencha todos os campos'
       });
@@ -51,14 +52,14 @@ app.post('/cadastrar-usuario', (req, res) => {
       if(err){
          const mensagem = 'Erro ao verificar e-mail existente'
          console.error('(server) ', mensagem, err);
-         return res.status(500).json({ 
+         return res.status(statusErro).json({ 
             error: 'Erro ao verificar e-mail existente.',
             message: mensagem
          });
       }
 
       if(result.length > 0){
-         return res.status(400).json({ 
+         return res.status(statusAviso).json({ 
 				error: 'Este e-mail já está cadastrado.',
             message: 'Já existe um usuário cadastrado com este e-mail.'
 			});
@@ -69,7 +70,7 @@ app.post('/cadastrar-usuario', (req, res) => {
          if(err){
             const mensagem = 'Erro ao verificar e-mail existente'
             console.error('(server) ', mensagem, err);
-            return res.status(500).json({ 
+            return res.status(statusErro).json({ 
 					error: true,
                message: mensagem
 				});
@@ -92,11 +93,11 @@ app.post('/verificar-login', (req, res) => {
    } = req.body;
 
    const nomeFormatado = nome.trim()
-   const queriVerificarLogin = `SELECT * FROM usuarios WHERE nome = '${nomeFormatado}' AND senha = '${senha}'`;
-   database.query(queriVerificarLogin, (err, result) => {
+   const queryVerificarLogin = `SELECT * FROM usuarios WHERE nome = '${nomeFormatado}' AND senha = '${senha}'`;
+   database.query(queryVerificarLogin, (err, result) => {
       if(err){
          console.error('(server) Erro ao verificar login:', err);
-         return res.status(500).json({ 
+         return res.status(statusErro).json({ 
             error: 'Erro ao verificar login.' 
          });
       }
@@ -111,7 +112,7 @@ app.post('/verificar-login', (req, res) => {
       
       }else{
          console.log('(server) Nome de usuário ou senha incorretos.');
-         res.status(401).json({ 
+         res.status(statusAviso).json({ 
             error: 'Nome de usuário ou senha incorretos.' 
          });
       }
@@ -120,19 +121,18 @@ app.post('/verificar-login', (req, res) => {
 
 app.get('/recuperar-filme', (req, res) => {
    const idCartaz = req.query.idCartaz;
-
-   if (!idCartaz) {
-      res.status(400).send('O parâmetro idCartaz é obrigatório.');
+   if(!idCartaz){
+      res.status(statusErro).send('O parâmetro idCartaz é obrigatório.');
       return;
    }
 
-   const sql = `SELECT * FROM FILMES WHERE id_filme = '${idCartaz}'`;
-
-   database.query(sql, (err, result) => {
-      if (err) {
+   const queryBuscarFilme = `SELECT * FROM FILMES WHERE id_filme = '${idCartaz}'`;
+   database.query(queryBuscarFilme, (err, result) => {
+      if(err){
          console.log(err);
-         res.status(500).send('Erro ao executar a consulta no banco de dados.');
-      } else {
+         res.status(statusErro).send('Erro ao executar a consulta no banco de dados.');
+      
+      }else{
          res.json({
             message: result
          });

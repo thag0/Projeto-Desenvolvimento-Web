@@ -18,7 +18,7 @@
         <div class="login-cadastro">
             <img id="user" src="images/user.png" alt="user">
             <ul>
-                <a href="telaLogin.html" id="nomeUsuario"></a>
+                <a href="pagLogin.html" id="nomeUsuario"></a>
             </ul>
             <img id="imgSair" src="images/sair.png" alt="user">
         </div>
@@ -107,15 +107,15 @@
     </div> <!--fim div contato-->
 
     <script type="module">
-        import funcoes from './js/index.js';
-        import login from './js/login.js';
+        import funcoes from './script/index.js';
+        import login from './script/login.mjs';
 
         const funcoesMain = {
             moverDireita: funcoes.moverDireita,
             moverEsquerda: funcoes.moverEsquerda,
             selecionarFilme: funcoes.executaAcao,
-            emCartaz: funcoes.baCartaz,
-            emBreve: funcoes.baBreve,
+            emCartaz: funcoes.barraCartaz,
+            emBreve: funcoes.barraBreve,
             logoff: login.logoff
         }
 
