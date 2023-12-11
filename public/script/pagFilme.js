@@ -104,3 +104,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+// ----------------
+
+import login from '/script/modulos/login.mjs';
+import filme from '/script/modulos/filme.mjs';
+
+const funcoesLogin = {
+	logoff: login.logoff
+}
+
+const funcoesRecuperar = {
+	recuperarFilme: filme.recuperarFilme
+}
+
+document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
+
+const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
+funcoesRecuperar.recuperarFilme(idCartaz)

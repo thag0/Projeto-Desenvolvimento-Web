@@ -14,23 +14,6 @@
 
 <body>
 	<script src="/script/pagFilme.js" type="module"></script>
-	<script type="module">
-		import login from './script/login.mjs';
-		import filme from './script/filme.mjs';
-
-		const funcoesLogin = {
-			logoff: login.logoff
-		}
-
-		const funcoesRecuperar = {
-			recuperarFilme: filme.recuperarFilme
-		}
-
-		document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
-
-		const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
-		funcoesRecuperar.recuperarFilme(idCartaz)
-	</script>
 
 	<header class="cabeca">
 		<a href="index.html"><img src="images/logo.png" alt="imagem"></a>

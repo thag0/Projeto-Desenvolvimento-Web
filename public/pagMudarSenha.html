@@ -8,17 +8,7 @@
     <title>Trocar Senha</title>
 </head>
 <body>
-	<script type="module">
-		import login from '/script/login.mjs'
-
-		const funcoesRedefinir = {
-			redefinirSenha: login.redefinirSenha,
-			voltar: login.voltar
-		}
-
-		document.getElementById('botaoConfirmar').addEventListener('click', funcoesRedefinir.redefinirSenha);	
-	    document.getElementById('botaoVoltar').addEventListener('click', funcoesRedefinir.voltar);
-	</script>
+	<script type="module" src="./script/pagMudarSenha.js"></script>
     <div class="container">
         <h2>Mudar Senha</h2>
         <form action="index.html" method="post">

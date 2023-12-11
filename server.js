@@ -1,4 +1,4 @@
-import database from './public/script/database.mjs'
+import database from './public/script/modulos/database.mjs'
 import express from 'express';
 const app = new express();
 

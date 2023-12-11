@@ -10,17 +10,7 @@
 </head>
 
 <body>
-	<script type="module">
-		import login from '/script/login.mjs'
-
-		const funcoesCadastro = {
-			fazerCadastro: login.cadastrarUsuario,
-			voltar: login.voltar
-		}
-
-		document.getElementById('botaoCadastrar').addEventListener('click', funcoesCadastro.fazerCadastro);	
-	   document.getElementById('botaoVoltar').addEventListener('click', funcoesCadastro.voltar);
-	</script>
+	<script type="module" src="./script/pagCadastro.js"></script>
 	<div class="container">
 		<h2>Cadastre-se</h2>
 		<form id="formCadastro" action="index.html" method="post">
