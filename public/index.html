@@ -13,145 +13,145 @@
 </head>
 
 <body>
-    <header class="cabeca">
-        <a href="index.html"><img src="images/logo.png" alt="imagem"></a>
-        <div class="login-cadastro">
-            <img id="user" src="images/user.png" alt="user">
-            <ul>
-                <a href="pagLogin.html" id="nomeUsuario"></a>
-            </ul>
-            <img id="imgSair" src="images/sair.png" alt="user">
-        </div>
-    </header>
+	<script type="module">
+		import funcoes from './script/index.js';
+		import login from './script/login.mjs';
 
-    <div class="navmain">
-        <div class="navegacao">
-            <ul>
-                <li><a href="#">Inicio</a>
-                </li>
-                <li><a href="lista.html">Programação</a>
-                </li>
-                <li><a href="lista.html">Ingressos</a>
-                </li>
-                <li><a href="lista.html">Sobre o Cine FECOMP</a>
-                </li>
-                <li><a href="lista.html">Atendimento</a>
-                </li>
-            </ul>
-        </div> <!--fim da div main nav-->
-    </div>
+		const funcoesMain = {
+			moverDireita: funcoes.moverDireita,
+			moverEsquerda: funcoes.moverEsquerda,
+			selecionarFilme: funcoes.executaAcao,
+			emCartaz: funcoes.barraCartaz,
+			emBreve: funcoes.barraBreve,
+			logoff: login.logoff
+		}
 
-    <div class="conteudo">
-        <div id="emCartaz">EM CARTAZ</div>
-        <div id="barraCartaz"></div>
-        <div id="emBreve">EM BREVE</div>
-        <div id="barraBreve"></div>
-        <div class="container">
+		function salvarId(id){
+			sessionStorage.setItem('idFilmeSelecionado', id)
+		}
 
-            <div class=".botao-movimentoEsq">
-                <img id="botaoEsquerdo" src="images/Vector 2.svg"/>
-            </div>
+		document.getElementById('cartaz1').addEventListener('click', function () {
+			const idFilme = this.id
+			salvarId(idFilme)
+			funcoesMain.selecionarFilme(idFilme)
+		});
+		document.getElementById('cartaz2').addEventListener('click', function () {
+			const idFilme = this.id
+			salvarId(idFilme)
+			funcoesMain.selecionarFilme(idFilme)
+		});
+		document.getElementById('cartaz3').addEventListener('click', function () {
+			const idFilme = this.id
+			salvarId(idFilme)
+			funcoesMain.selecionarFilme(idFilme)
+		});
+		document.getElementById('cartaz4').addEventListener('click', function () {
+			const idFilme = this.id
+			salvarId(idFilme)
+			funcoesMain.selecionarFilme(idFilme)
+		});
 
-            <div class="filme1 item" id="cartaz1">
-                <img src="images/jogosVorazes.jpg" alt="Filme 1"/>
-                <div id="f1">
-                    JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES
-                </div>
-            </div>
+		document.getElementById('botaoEsquerdo').addEventListener('click', funcoesMain.moverDireita);
+		document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
+		document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
+		document.getElementById('emCartaz').addEventListener('click', funcoesMain.emCartaz);
+		document.getElementById('emBreve').addEventListener('click', funcoesMain.emBreve);
 
-            <div class="filme2 item" id="cartaz2">
-                <img src="images/trolls.jpg" />
-                <div id="f2">
-                    TROLLS 3
-                </div>
-            </div>
+		document.getElementById('imgSair').addEventListener('click', funcoesMain.logoff);
+	</script>
 
-            <div class="filme3 item" id="cartaz3">
-                <img src="images/napoleao.jpg" />
-                <div id="f3">
-                    NAPOLEÃO
-                </div>
-            </div>
+	<header class="cabeca">
+		<a href="index.html"><img src="images/logo.png" alt="imagem"></a>
+		<div class="login-cadastro">
+			<img id="user" src="images/user.png" alt="user">
+			<ul>
+				<a href="pagLogin.html" id="usuarioLogado"></a>
+			</ul>
+			<img id="imgSair" src="images/sair.png" alt="user">
+		</div>
+	</header>
 
-            <div class="filme4 item" id="cartaz4">
-                <img src="images/msMarvel.jpg" />
-                <div id="f4">
-                    AS MARVELS
-                </div>
-            </div>
+	<div class="navmain">
+		<div class="navegacao">
+			<ul>
+				<li><a href="#">Inicio</a>
+				</li>
+				<li><a href="lista.html">Programação</a>
+				</li>
+				<li><a href="lista.html">Ingressos</a>
+				</li>
+				<li><a href="lista.html">Sobre o Cine FECOMP</a>
+				</li>
+				<li><a href="lista.html">Atendimento</a>
+				</li>
+			</ul>
+		</div> <!--fim da div main nav-->
+	</div>
 
-            <div class="botao-movimentoDir">
-                <img id="botaoDireito" src="images/Vector 1.svg"/>
-            </div>
-        </div><!--fim div container-->
+	<div class="conteudo">
+		<div id="emCartaz">EM CARTAZ</div>
+		<div id="barraCartaz"></div>
+		<div id="emBreve">EM BREVE</div>
+		<div id="barraBreve"></div>
+		<div class="container">
 
-        <div style="clear:both;"></div>
-    </div><!-- fim div conteudo-->
+			<div class=".botao-movimentoEsq">
+				<img id="botaoEsquerdo" src="images/Vector 2.svg" />
+			</div>
 
-    <div class="contatos">
-        <aside>
-            <h3>Contatos</h3>
-            <ul>
-                <li><a href="https://www.facebook.com/cleber.almeida.79" target="_blank" rel="noopener noreferrer"><img
-                            src="images/facebook.png" alt="facebook">Facebook</a></li>
-                <li><a href="https://www.instagram.com/cleberton7/" target="_blank" rel="noopener noreferrer"><img
-                            src="images/insta.png" alt="instagram">Instagram</a></li>
-                <li><a href="https://twitter.com/cleberton_de" target="_blank" rel="noopener noreferrer"><img
-                            src="images/ttr.png" alt="twitter">Twitter</a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=5594984097379&text=Cleberton" target="_blank"
-                        rel="noopener noreferrer"><img src="images/wpp.png" alt="whatsapp">WhatsApp</a></li>
-                <li><a href="https://www.linkedin.com/in/cleberton-pereira-98867992/" target="_blank"
-                        rel="noopener noreferrer"><img src="images/link.png" alt="linkedin">LinkedIn</a></li>
-            </ul>
-        </aside>
-    </div> <!--fim div contato-->
+			<div class="filme1 item" id="cartaz1">
+				<img src="images/jogosVorazes.jpg" alt="Filme 1" />
+				<div id="f1">
+					JOGOS VORAZES: A CANTIGA DOS PÁSSAROS E DAS SERPENTES
+				</div>
+			</div>
 
-    <script type="module">
-        import funcoes from './script/index.js';
-        import login from './script/login.mjs';
+			<div class="filme2 item" id="cartaz2">
+				<img src="images/trolls.jpg" />
+				<div id="f2">
+					TROLLS 3
+				</div>
+			</div>
 
-        const funcoesMain = {
-            moverDireita: funcoes.moverDireita,
-            moverEsquerda: funcoes.moverEsquerda,
-            selecionarFilme: funcoes.executaAcao,
-            emCartaz: funcoes.barraCartaz,
-            emBreve: funcoes.barraBreve,
-            logoff: login.logoff
-        }
+			<div class="filme3 item" id="cartaz3">
+				<img src="images/napoleao.jpg" />
+				<div id="f3">
+					NAPOLEÃO
+				</div>
+			</div>
 
-        function salvarId(id){
-            sessionStorage.setItem('idFilmeSelecionado', id)
-        }
+			<div class="filme4 item" id="cartaz4">
+				<img src="images/msMarvel.jpg" />
+				<div id="f4">
+					AS MARVELS
+				</div>
+			</div>
 
-	    document.getElementById('cartaz1').addEventListener('click', function(){
-            const idFilme = this.id
-            salvarId(idFilme)
-            funcoesMain.selecionarFilme(idFilme)
-        });
-	    document.getElementById('cartaz2').addEventListener('click', function(){
-            const idFilme = this.id
-            salvarId(idFilme)
-            funcoesMain.selecionarFilme(idFilme)
-        });
-	    document.getElementById('cartaz3').addEventListener('click', function(){
-            const idFilme = this.id
-            salvarId(idFilme)
-            funcoesMain.selecionarFilme(idFilme)
-        });
-	    document.getElementById('cartaz4').addEventListener('click', function(){
-            const idFilme = this.id
-            salvarId(idFilme)
-            funcoesMain.selecionarFilme(idFilme)
-        });
+			<div class="botao-movimentoDir">
+				<img id="botaoDireito" src="images/Vector 1.svg" />
+			</div>
+		</div><!--fim div container-->
 
-        document.getElementById('botaoEsquerdo').addEventListener('click', funcoesMain.moverDireita);	
-	    document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
-	    document.getElementById('botaoDireito').addEventListener('click', funcoesMain.moverEsquerda);
-	    document.getElementById('emCartaz').addEventListener('click', funcoesMain.emCartaz);
-	    document.getElementById('emBreve').addEventListener('click', funcoesMain.emBreve);
+		<div style="clear:both;"></div>
+	</div><!-- fim div conteudo-->
 
-	    document.getElementById('imgSair').addEventListener('click', funcoesMain.logoff);
-    </script>
+	<div class="contatos">
+		<aside>
+			<h3>Contatos</h3>
+			<ul>
+				<li><a href="https://www.facebook.com/cleber.almeida.79" target="_blank" rel="noopener noreferrer"><img
+							src="images/facebook.png" alt="facebook">Facebook</a></li>
+				<li><a href="https://www.instagram.com/cleberton7/" target="_blank" rel="noopener noreferrer"><img
+							src="images/insta.png" alt="instagram">Instagram</a></li>
+				<li><a href="https://twitter.com/cleberton_de" target="_blank" rel="noopener noreferrer"><img
+							src="images/ttr.png" alt="twitter">Twitter</a></li>
+				<li><a href="https://api.whatsapp.com/send?phone=5594984097379&text=Cleberton" target="_blank"
+						rel="noopener noreferrer"><img src="images/wpp.png" alt="whatsapp">WhatsApp</a></li>
+				<li><a href="https://www.linkedin.com/in/cleberton-pereira-98867992/" target="_blank"
+						rel="noopener noreferrer"><img src="images/link.png" alt="linkedin">LinkedIn</a></li>
+			</ul>
+		</aside>
+	</div> <!--fim div contato-->
 </body>
 
 </html>

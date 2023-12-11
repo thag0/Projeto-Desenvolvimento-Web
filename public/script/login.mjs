@@ -60,7 +60,7 @@ function fazerLogin(){
       if(data.login){
 			const nomeUsuario = document.getElementById('nomeLogin')
          if(nomeUsuario){
-				sessionStorage.setItem('nomeUsuario', data.nomeUsuario)
+				sessionStorage.setItem('usuarioLogado', data.nomeUsuario)
             window.location.href = '/index.html';
 			}
       
@@ -74,10 +74,11 @@ function fazerLogin(){
 }
 
 function logoff(){
-	const nomeUsuario = sessionStorage.getItem('nomeUsuario')
+	const pagina = window.location.href
+	const nomeUsuario = sessionStorage.getItem('usuarioLogado')
 	if(nomeUsuario){
-		sessionStorage.removeItem('nomeUsuario')
-		window.location.href = '/index.html';
+		sessionStorage.removeItem('usuarioLogado')
+		window.location.href = pagina;
 	}
 }
 

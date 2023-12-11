@@ -13,6 +13,7 @@
 </head>
 
 <body>
+	<script src="/script/pagFilme.js" type="module"></script>
 	<script type="module">
 		import login from './script/login.mjs';
 		import filme from './script/filme.mjs';
@@ -22,18 +23,21 @@
 		}
 
 		const funcoesRecuperar = {
-			rec: filme.recuperarFilme
+			recuperarFilme: filme.recuperarFilme
 		}
 
+		document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
+
 		const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
-		funcoesRecuperar.rec(idCartaz)
+		funcoesRecuperar.recuperarFilme(idCartaz)
 	</script>
+
 	<header class="cabeca">
 		<a href="index.html"><img src="images/logo.png" alt="imagem"></a>
 		<div class="login-cadastro">
 			<img id="user" src="images/user.png" alt="user">
 			<ul>
-				<a href="telaLogin.html" id="nomeUsuario"></a>
+				<a href="telaLogin.html" id="usuarioLogado"></a>
 			</ul>
 			<img id="imgSair" src="images/sair.png" alt="user">
 		</div>

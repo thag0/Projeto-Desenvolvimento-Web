@@ -1,12 +1,13 @@
-//mostrar mensagem dinamicamente
-const nomeUsuario = sessionStorage.getItem('nomeUsuario')
-const elemNomeUsuario = document.getElementById("nomeUsuario")
-if(elemNomeUsuario){
-	if(nomeUsuario){
-		elemNomeUsuario.textContent = `Olá, ${nomeUsuario}`
+const usuarioLogado = sessionStorage.getItem('usuarioLogado')
+const elemUsuarioLogado = document.getElementById("usuarioLogado")
+if(elemUsuarioLogado){
+	if(usuarioLogado){
+		var imagem = document.getElementById('imgSair')
+		imagem.style.display = 'block'
+		elemUsuarioLogado.textContent = `Olá, ${usuarioLogado}`
 
 	}else{
-		elemNomeUsuario.textContent = "Faça login ou cadastre-se"
+		elemUsuarioLogado.textContent = "Faça login ou cadastre-se"
 	}
 }
 

@@ -1,28 +1,28 @@
 const primeiraVisita = sessionStorage.getItem('firstVisit') === null
 
 // Mostrar nome do usuário logado
-if (primeiraVisita){
-	localStorage.removeItem('nomeUsuario')
+if(primeiraVisita){
+	localStorage.removeItem('usuarioLogado')
 	sessionStorage.setItem('firstVisit', 'true')
 }
 
 // Limpar valores locais quando fechar a aba
 window.addEventListener('beforeunload', function (){
 	sessionStorage.removeItem('firstvisit')
-	localStorage.removeItem('nomeUsuario')
+	localStorage.removeItem('usuarioLogado')
 });
 
 //mostrar mensagem dinamicamente
-const nomeUsuario = sessionStorage.getItem('nomeUsuario')
-const elemNomeUsuario = document.getElementById("nomeUsuario")
-if(elemNomeUsuario){
-	if(nomeUsuario){
+const usuarioLogado = sessionStorage.getItem('usuarioLogado')
+const elemUsuarioLogado = document.getElementById("usuarioLogado")
+if(elemUsuarioLogado){
+	if(usuarioLogado){
 		var imagem = document.getElementById('imgSair')
 		imagem.style.display = 'block'
-		elemNomeUsuario.textContent = `Olá, ${nomeUsuario}`
+		elemUsuarioLogado.textContent = `Olá, ${usuarioLogado}`
 
 	}else{
-		elemNomeUsuario.textContent = "Faça login ou cadastre-se"
+		elemUsuarioLogado.textContent = "Faça login ou cadastre-se"
 	}
 }
 
