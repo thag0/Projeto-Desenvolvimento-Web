@@ -29,7 +29,7 @@ if(elemNomeUsuario){
 // -------------
 
 function executaAcao(idFilme){
-	location.href = "pagFilme.html";
+	window.location.href = "pagFilme.html";
 }
 
 function baCartaz(){

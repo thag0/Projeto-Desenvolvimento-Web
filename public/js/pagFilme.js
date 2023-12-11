@@ -21,16 +21,16 @@ function recuperarFilmes(idCartaz){
       .then(data => {
 			const filmes = data.message;
 			console.log(data.message);
+			
+			const elementoSalaTitulo = document.getElementById('salaTitulo')
+			
+			//informações do filme
 			const elementoFilmeTitulo = document.getElementById('filmeTitulo')
 			const elementoFilmeElenco = document.getElementById('filmeElenco')
 			const elementoFilmeDirecao = document.getElementById('filmeDirecao')
 			const elementoFilmeGenero = document.getElementById('filmeGenero')
 			const elementoFilmeDuracao = document.getElementById('filmeDuracao')
 			const elementoFilmeSinopse = document.getElementById('filmeSinopse')
-			
-			const elementoSalaTitulo = document.getElementById('salaTitulo')
-			
-			//informações
 			elementoFilmeTitulo.innerHTML = filmes[0].nome
 			elementoFilmeElenco.innerHTML = filmes[0].elenco
 			elementoFilmeDirecao.innerHTML = filmes[0].direcao
