@@ -1,9 +1,4 @@
-import login from '/script/modulos/login.mjs'
+import modLogin from './modulos/login.mjs'
 
-const funcoesLogin = {
-   fazerLogin: login.fazerLogin,
-   voltar: login.voltar
-}
-
-document.getElementById('botaoEntrar').addEventListener('click', funcoesLogin.fazerLogin);	
-document.getElementById('botaoVoltar').addEventListener('click', funcoesLogin.voltar);
+document.getElementById('botaoEntrar').addEventListener('click', modLogin.fazerLogin);	
+document.getElementById('botaoVoltar').addEventListener('click', modLogin.voltar);

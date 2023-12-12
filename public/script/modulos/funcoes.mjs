@@ -48,6 +48,10 @@ function moverEsquerda(){
 	container.appendChild(primeiroFilme);
 }
 
+/**
+ * Mostra dinamicamente o nome do usuário logado ou uma 
+ * mensagem de fazer cadastro
+ */
 function usuarioLogado(){
    const usuarioLogado = sessionStorage.getItem('usuarioLogado')
    const elemUsuarioLogado = document.getElementById("usuarioLogado")

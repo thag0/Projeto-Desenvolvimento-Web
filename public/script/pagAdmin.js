@@ -1,9 +1,5 @@
 import modFilme from './modulos/filme.mjs';
-import login from '/script/modulos/login.mjs';
-
-const funcoesLogin = {
-	logoff: login.logoff
-}
+import modLogin from './modulos/login.mjs';
 
 const usuarioLogado = sessionStorage.getItem('usuarioLogado')
 const elemUsuarioLogado = document.getElementById("usuarioLogado")
@@ -20,7 +16,7 @@ if(elemUsuarioLogado){
 	}
 }
 
-document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
+document.getElementById('imgSair').addEventListener('click', modLogin.logoff);
 
 document.addEventListener('DOMContentLoaded', function() {
     var divUsuario = document.querySelector('.telaAdmUsuario');

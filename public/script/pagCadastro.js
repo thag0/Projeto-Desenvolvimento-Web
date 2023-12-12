@@ -1,4 +1,4 @@
-import login from '/script/modulos/login.mjs'
+import login from './modulos/login.mjs'
 
 const funcoesCadastro = {
    fazerCadastro: login.cadastrarUsuario,

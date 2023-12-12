@@ -1,3 +1,7 @@
+/**
+ * Usa o id do cartaz pra fazer uma busca no banco de dados
+ * @param {*} idCartaz índice do cartaz na pagina inicial 
+ */
 function recuperarFilme(idCartaz){
    fetch(`/recuperar-filme?idCartaz=${idCartaz}`)
 	.then(response => {
@@ -37,6 +41,9 @@ function recuperarFilme(idCartaz){
 	});
 }
 
+/**
+ * Devolve a lista completa de filmes salvos no banco de dados
+*/
 function recuperarTodosFilmes(){
 	fetch('/recuperar-todos-filmes')
 	.then(response => response.json())
@@ -53,6 +60,9 @@ function recuperarTodosFilmes(){
 	})
 }
 
+/**
+ * Devolve a lista completa de usuários salvos no banco de dados
+ */
 function recuperarTodosUsuarios(){
 	fetch('/recuperar-todos-usuarios')
 	.then(response => response.json())

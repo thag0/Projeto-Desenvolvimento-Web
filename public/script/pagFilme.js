@@ -1,16 +1,11 @@
-import login from '/script/modulos/login.mjs';
-import filme from '/script/modulos/filme.mjs';
-import funcoes from './modulos/funcoes.mjs'
+import modLogin from './modulos/login.mjs';
+import filme from './modulos/filme.mjs';
+import modFuncoes from './modulos/funcoes.mjs'
 
-const funcoesLogin = {
-	logoff: login.logoff
+const funcoesPagFilme = {
+	recuperarFilme: filme.recuperarFilme,
 }
-
-const funcoesRecuperar = {
-	recuperarFilme: filme.recuperarFilme
-}
-
-funcoes.usuarioLogado()
+modFuncoes.usuarioLogado()
 
 document.addEventListener("DOMContentLoaded", function () {
 	var modal = document.getElementById('myModal');
@@ -100,12 +95,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	// intial count and total
 	updateSelectedCount();
-
 
 });
 
-document.getElementById('imgSair').addEventListener('click', funcoesLogin.logoff);
+document.getElementById('imgSair').addEventListener('click', modLogin.logoff);
 const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
-funcoesRecuperar.recuperarFilme(idCartaz)
+funcoesPagFilme.recuperarFilme(idCartaz)

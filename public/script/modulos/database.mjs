@@ -13,10 +13,10 @@ const conexao = mysql.createConnection({
 
 conexao.connect((err) => {
    if(err){
-      console.error('(database) Erro ao conectar ao banco de dados:', err);
+      console.error(`(database) Erro ao conectar ao banco de dados "${conexao.database}"`, err);
    
    }else{
-      console.log('(database) Conexão ao banco de dados estabelecida.');
+      console.log(`(database) Conectado ao banco de dados "${conexao.database}"`);
    }
 })
 

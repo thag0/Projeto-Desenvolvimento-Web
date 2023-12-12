@@ -1,3 +1,7 @@
+/**
+ * Cadastra o usuário no banco de dados usando os valores
+ * pegos nos campos.
+ */
 function cadastrarUsuario(){
 	const nome = document.getElementById('nome').value;
 	const email = document.getElementById('email').value;
@@ -38,6 +42,10 @@ function cadastrarUsuario(){
 	});
 }
 
+/**
+ * Consulta no banco de dados as informações de nome e senha
+ * do usuário.
+ */
 function fazerLogin(){
    const nome = document.getElementById("nomeLogin").value;
    const senha = document.getElementById("senhaLogin").value;
@@ -78,6 +86,9 @@ function fazerLogin(){
    });
 }
 
+/**
+ * Remove o usuário logado da sessão atual
+ */
 function logoff(){
 	const pagina = window.location.href
 	const nomeUsuario = sessionStorage.getItem('usuarioLogado')
