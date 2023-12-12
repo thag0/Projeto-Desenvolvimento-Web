@@ -28,14 +28,12 @@
 }
 
 .info-container {
-
   width: 80%;
   /* Largura do container das informações */
   padding-left: 3%;
 }
 
 .info-item {
-
   display: flex;
   font-weight: normal;
   margin-top: 15px;
@@ -43,7 +41,6 @@
 }
 
 h2 {
-
   text-decoration: underline;
   color: white;
   font-weight: bold;
@@ -53,7 +50,6 @@ h2 {
 }
 
 .info-content {
-
   color: rgb(190, 190, 190);
   flex: 1;
   /* Ocupa o espaço restante no contêiner */
@@ -61,11 +57,9 @@ h2 {
   padding-top: 4px;
   text-align: justify;
   text-decoration: none;
-
 }
 
 .btnEsc-container {
-
   display: flex;
   align-items: center;
   /* Alinha verticalmente os itens */
@@ -94,7 +88,6 @@ h2 {
 
 /* Estilos para o modal */
 .modal {
-
   display: none;
   /* Oculta o modal por padrão */
   position: fixed;
@@ -126,11 +119,9 @@ h2 {
   font-weight: bold;
   margin-left: 90%;
   margin-top: -40px;
-
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;

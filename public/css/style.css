@@ -1,14 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Jost:wght@700&display=swap');
+
 *{
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
+
 #fundo{
 	background: white;
 	margin-left: 1000px;
-	}
+}
 
 body {
 	margin: 0;
@@ -16,17 +18,17 @@ body {
 	font: 100% arial, hevetica, sans-serif;
 	text-align: center;
 	color: #333;
-
 	background: rgb(61, 179, 245);
-    background-attachment: fixed;
-	}
-body.tema{
-		background: linear-gradient(rgb(3, 229, 229), rgb(38, 150, 150),rgb(56, 137, 137),rgb(61, 76, 76)) no-repeat;
+   background-attachment: fixed;
 }
+
+body.tema{
+	background: linear-gradient(rgb(3, 229, 229), rgb(38, 150, 150),rgb(56, 137, 137),rgb(61, 76, 76)) no-repeat;
+}
+
 p{
 	text-indent: 50px;
-	
-    text-align: justify;
+ 	text-align: justify;
 }
 
 a:link { color: #B52C07; }
@@ -39,14 +41,16 @@ h1, h2, h3, h4, h5, h6 { margin: 0 0 .5em; }
 h2 {
 	color: #B52C07;
 	font: 140% georgia, times, "times new roman", serif;
-	}
+}
 
-h2 a { text-decoration: none; }
+h2 a {
+	text-decoration: none;
+}
 
 h3 {
 	color: #7d8206;
 	font: 110% georgia, times, "times new roman", serif;
-	}
+}
 
 /* container styles */
 
@@ -54,8 +58,7 @@ h3 {
 	margin: 1em auto;
 	width: 900px;
 	text-align: left; 
-	
-	}
+}
 /* container styles */
 
 /*skipBusca(cabeça) styles*/
@@ -66,22 +69,26 @@ h3 {
 	height: 40px;
 	width:100%;
 }
+
 #logo{
 	position: absolute;
-
 }
+
 #logo a img{
 	position: absolute;
     height: 80px;
 	width:200px;
 }
+
 .login-cadastro{
 	position: absolute;
 	margin-left: 670px;	
 }
+
 .login-cadastro ul{
 	margin: 0px 30px;
 }
+
 .login-cadastro ul li{
 	float: left;
 	display: inline;
@@ -91,10 +98,10 @@ h3 {
 	margin: 4px 0px 0px 10px;
 	position: relative;
 }
+
 .login-cadastro ul li a{
 	color: white;
 	text-decoration:  none;
-	
 }
 
 .login-cadastro ul ul{
@@ -104,8 +111,8 @@ h3 {
 	padding: 10px;
 	display: none;
 	border-radius:10px 10px 10px 10px;
-	
 }
+
 .login-cadastro ul ul li{
 	color: white;
 	background-color: black;
@@ -114,10 +121,11 @@ h3 {
 	border-radius:10px 10px 10px 10px;
 	padding: 4px;
 }
-.login-cadastro ul li:hover ul {
+
+.login-cadastro ul li:hover ul{
 	display: block;
-	
 }
+
 .login-cadastro ul ul li a{
 	font-size: 12px;
 }
@@ -131,12 +139,10 @@ h3 {
 	border-radius:20px;
 	width:600px;
 	margin-left: 210px;
-	margin-top: 20px;
-	
+	margin-top: 20px;	
 }
 
-#divBusca input{	
-
+#divBusca input{
 	display: inline-block;
 	outline: 0;
 	border-style: none;
@@ -158,10 +164,12 @@ h3 {
 	height: 30.8px;
 	padding: 5px 10px;
 }
+
 #divBusca button:hover{
 	background: rgb(49, 54, 54);
     color: #000;
 }
+
 #divBusca img{
 	margin: 0px 0px -5px 5px;
 	width:20px;
@@ -170,7 +178,6 @@ h3 {
 }
 
 #mainnav ul li{
-
 	float: left;
 	display: inline;
 	width: 180px;
@@ -179,41 +186,41 @@ h3 {
 	line-height: 40px;
 	position: relative;
 	font-weight: bold;   
-	
 }
-#mainnav nav ul li a {
+
+#mainnav nav ul li a{
 	color: white;
 	text-decoration: none; 
 	
 }
 
-#mainnav ul li:hover {
+#mainnav ul li:hover{
 	transition: background .6s;
 	background: rgba(0, 0, 0, 0.205);
 	color: white;
 }
-#mainnav nav ul li a:hover {
+
+#mainnav nav ul li a:hover{
 	color:white;
 }
 
 #mainnav nav ul ul li:hover a{
-	
 	background: rgba(0, 0, 0, 0.326);
-	
 }
-#mainnav nav ul ul li a {
+
+#mainnav nav ul ul li a{
 	color: black;
-	text-decoration: none;
-      
+	text-decoration: none;    
 }
-#mainnav nav ul ul li a:hover {
+
+#mainnav nav ul ul li a:hover{
 	color: white;
 }
 
 #mainnav ul ul{
 	display: none;
-	
 }
+
 #mainnav ul li:hover ul{
  	display: block;
 }
@@ -224,24 +231,24 @@ h3 {
 	transition:  .6s;
 }
 
-#contato {
-	
-    color:black;
+#contato{
+	color:black;
 	float: right;
 	width: 150px;
-    margin-top: 100px;
-    margin-right: 15px;
+	margin-top: 100px;
+	margin-right: 15px;
 	font-size: 80%;
 	padding-top: 10px;  
 }
+
 #contato aside h3{
-	
-    color: white;
-    text-align:center;
+	color: white;
+	text-align:center;
 	font-size: 20px;
 }
+
 #contato aside ul {
-    list-style: none;
+	list-style: none;
 	margin-left: -20px;
 	padding-right: 20px;
 
@@ -249,20 +256,22 @@ h3 {
 
 #contato aside ul li a{
 	padding: 10px 5px 5px 5px;
-    border:none;
-    display: block;
-    color:#fff;
-    text-decoration: none;    
+	border:none;
+	display: block;
+	color:#fff;
+	text-decoration: none;    
 	transition: background .6s;
 }
+
 #contato aside ul li a:hover{
 	color: #000000;
-    /*background-color:rgb(15, 141, 199);*/
+	/*background-color:rgb(15, 141, 199);*/
 }
+
 #contato ul li img{
-    vertical-align: middle;
-    padding-right: 5px;
-    height:25px;
+	vertical-align: middle;
+	padding-right: 5px;
+	height:25px;
 	width:30px;
 }
 
@@ -270,22 +279,20 @@ h3 {
 
 #contents {
 	position: fixed;
-    color: white;
-    padding:10px 10px;
+	color: white;
+	padding:10px 10px;
 	float: left;
 	width: 630px;
 	margin: 100px 0 15px 15px;
-    margin-bottom: 50px;
-    overflow-y: scroll; /* Adiciona barra de rolagem caso o conteúdo seja maior */
+	margin-bottom: 50px;
+	overflow-y: scroll; /* Adiciona barra de rolagem caso o conteúdo seja maior */
 }
-	
 
 #contents p { 
 	line-height: 165%; 
 }
 
 .imageautor {
-	
 	width:200px;
 	height:200;
 	float: right;
@@ -293,7 +300,6 @@ h3 {
 	border: 1px solid #51524796;
 	margin: 10px 0 10px 10px;
 }
-
 
 /* footer styles */
 
@@ -305,6 +311,7 @@ h3 {
 	background: #9FA41D;
 	padding: 5px;
 }
+
 .checkbox {
   opacity: 0;
   position: absolute;
@@ -317,14 +324,13 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 5px;
   position: relative;
   height: 26px;
   width: 50px;
   transform: scale(1.5);
-
 }
+
 .label .ball {
   background-color: #fff;
   border-radius: 50%;

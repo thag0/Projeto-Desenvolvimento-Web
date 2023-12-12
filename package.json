@@ -1,5 +1,5 @@
 {
-	"name": "projeto-desenvolvimento-web-main",
+	"name": "projeto-desenvolvimento-web",
 	"version": "1.0.0",
 	"description": "reserva de salas de cinmea",
 	"main": "server.js",
