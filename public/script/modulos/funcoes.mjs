@@ -57,18 +57,18 @@ function usuarioLogado(){
    const elemUsuarioLogado = document.getElementById("usuarioLogado")
    if(elemUsuarioLogado){
       if(usuarioLogado){
-           const usuarioAdmin = sessionStorage.getItem('usuarioAdmin')
-           if(usuarioAdmin === "1"){
-               elemUsuarioLogado.href = "pagAdmin.html"
+			var elmTextoLogin = document.getElementById('usuarioLogado')
+			const usuarioAdmin = sessionStorage.getItem('usuarioAdmin')
+			if(usuarioAdmin === "1"){
+				elemUsuarioLogado.href = "pagAdmin.html"
    
-           }else{
-               elmTextoLogin.removeAttribute('href')
-           }
+			}else{
+				elmTextoLogin.removeAttribute('href')
+			}
    
          var imagem = document.getElementById('imgSair')
          imagem.style.display = 'block'
          elemUsuarioLogado.textContent = `Olá, ${usuarioLogado}`
-         var elmTextoLogin = document.getElementById('usuarioLogado')
    
       }else{
          elemUsuarioLogado.textContent = "Faça login ou cadastre-se"
