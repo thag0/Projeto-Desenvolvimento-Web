@@ -77,11 +77,19 @@ function usuarioLogado(){
    }
 }
 
+/**
+ * Retorna pra última página.
+ */
+function voltar(){
+	window.history.back()
+}
+
 export default {
 	selecionarFilme,
 	barraCartaz,
 	barraBreve,
 	moverDireita,
 	moverEsquerda,
-	usuarioLogado
+	usuarioLogado,
+	voltar
 }

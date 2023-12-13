@@ -1,0 +1,11 @@
+/* CSS para centralizar a div .configurar */
+
+
+.configurar {
+    position: absolute;
+    bottom: 20px; /* Define uma distância de 20px do final do container */
+    left: 50%; /* Move o início da div configurar para o centro */
+    transform: translateX(-50%); /* Volta a div configurar pela metade da sua largura */
+    text-align: center; /* Alinha o texto ao centro */
+    width: 100%; /* Garante que a largura seja 100% do container */
+}

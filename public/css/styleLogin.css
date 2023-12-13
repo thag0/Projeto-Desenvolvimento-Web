@@ -185,7 +185,31 @@ input::placeholder{
     margin-right: 20px;
     float: left;
     width: 10%;
+
 }
+.configuração {
+    margin-top: 10px; /* Reduz a margem superior */
+    text-align: center; /* Alinha o texto ao centro */
+    font-size: 14px; /* Tamanho do texto */
+    margin-top:40px;
+    /* Estilos semelhantes para âncora e parágrafo dentro da div .configuração */
+    a, p {
+        text-decoration: none; /* Remove o sublinhado padrão */
+        color: rgb(0, 0, 0); /* Cor do texto */
+        transition: .25s ease-in-out; /* Adiciona transição suave */
+    }
+
+    a:hover, p:hover {
+        color: #26a96a; /* Altera a cor ao passar o mouse por cima */
+    }
+}
+
+/* Ajuste para que os links na div .configuração fiquem na mesma linha */
+.configuração a {
+    display: inline-block; /* Exibe os links em linha */
+    margin-right: 10px; /* Adiciona espaço entre os links */
+}
+
 /* Estilos para tornar o layout responsivo em telas menores */
 @media screen and (max-width: 768px) {
     .conteudo {

@@ -120,10 +120,6 @@ function mouseoutPass(obj){
 	obj.type = "password";
 }
 
-function voltar(){
-	window.history.back()
-}
-
 function mouseoverPass2(obj){
 	var obj2 = document.getElementById('confirmar_senha');
 	obj2.type = "text";
@@ -141,7 +137,6 @@ export default {
 	redefinirSenha,
 	mouseoverPass,
 	mouseoutPass,
-	voltar,
 	mouseoverPass2,
 	mouseoutPass2
 }   

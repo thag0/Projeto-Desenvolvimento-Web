@@ -1,9 +1,5 @@
-import login from './modulos/login.mjs'
+import modLogin from './modulos/login.mjs'
+import modFuncoes from './modulos/funcoes.mjs'
 
-const funcoesCadastro = {
-   fazerCadastro: login.cadastrarUsuario,
-   voltar: login.voltar
-}
-
-document.getElementById('botaoCadastrar').addEventListener('click', funcoesCadastro.fazerCadastro);	
-document.getElementById('botaoVoltar').addEventListener('click', funcoesCadastro.voltar);
+document.getElementById('botaoCadastrar').addEventListener('click', modLogin.cadastrarUsuario);	
+document.getElementById('botaoVoltar').addEventListener('click', modFuncoes.voltar);
