@@ -14,25 +14,6 @@ app.listen(porta, () => {
 const statusErro = 500
 const statusAviso = 400
 
-//teste
-app.get('/consulta', (req, res) => {
-   const q = 'SELECT * FROM teste'
-
-   database.query(q, (err, result) => {
-      if(err){
-         res.status(statusErro).send('(server) Erro ao executar a consulta');
-      
-		}else{
-			if(result){
-				res.json(result);
-			
-			}else{
-				console.log('(server) resposta da query vazia.')
-			}
-      }
-   });
-});
-
 app.post('/cadastrar-usuario', (req, res) => {
    const { 
       nome, 
