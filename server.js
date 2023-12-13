@@ -128,7 +128,7 @@ app.post('/redefinir-senha', (req, res) => {
                })
             }
 
-            if(result > 0){
+            if(result.length > 0){
                //email e senha encontrados
                const queryAlterarSenha = `UPDATE usuarios SET senha = '${novaSenha}' WHERE email = '${email}' AND senha = '${senha}'`;
                database.query(queryAlterarSenha, (err, result) => {
@@ -142,8 +142,15 @@ app.post('/redefinir-senha', (req, res) => {
                      sucess: true,
                      message: mensagem
                   })
+               }) 
+            }else{
+               //senha errada
+               const mensagem = 'A senha não coincide com o registro no banco de dados.'
+               console.log('(server) ', mensagem)
+               return res.status(statusErro).json({
+                  error: true,
+                  message: mensagem
                })
-            
             }
          })
       }else{
