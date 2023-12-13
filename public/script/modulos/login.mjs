@@ -132,9 +132,10 @@ function redefinirSenha(email, senha, novaSenha){
 				alert('Senha redefinida.')
 				window.location.href = '/index.html'
 
-			}else{
-				console.log(data.message)
-
+			}
+			
+			if(data.error){
+				alert(data.message)
 			}
 		}
 	})

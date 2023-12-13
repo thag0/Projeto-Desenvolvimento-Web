@@ -108,30 +108,44 @@ app.post('/redefinir-senha', (req, res) => {
       novaSenha
    } = req.body;
 
-   const query = `SELECT * FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`
-   database.query(query, (err, result) => {
+   const queryVerificarEmail = `SELECT * FROM usuarios WHERE email = '${email}'`
+   database.query(queryVerificarEmail, (err, result) => {
       if(err){
-         return result.status(statusErro).json({
+         return res.status(statusErro).json({
             error: true,
             message: 'Erro ao consultar o email.'
          })
       }
 
       if(result.length > 0){
-         const queryAlterarSenha = `UPDATE usuarios SET senha = '${novaSenha}' WHERE email = '${email}' AND senha = '${senha}'`;
-         database.query(queryAlterarSenha, (err, result) => {
+         //email econtrado
+         const queryVerificarSenha = `SELECT * FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`
+         database.query(queryVerificarSenha, (err, result) =>{
             if(err){
-               console.error(`(server) Erro ao redefinir a senha do usuário com email '${email}'`)
+               return res.status(statusErro).json({
+                  error: true,
+                  message: 'Senha não coincide com o regristro no banco de dados.'
+               })
+            }
+
+            if(result > 0){
+               //email e senha encontrados
+               const queryAlterarSenha = `UPDATE usuarios SET senha = '${novaSenha}' WHERE email = '${email}' AND senha = '${senha}'`;
+               database.query(queryAlterarSenha, (err, result) => {
+                  if(err){
+                     console.error(`(server) Erro ao redefinir a senha do usuário com email '${email}'`)
+                  }
+               
+                  const mensagem = 'Senha redefinida.'
+                  console.log('(server) ', mensagem)
+                  return res.json({
+                     sucess: true,
+                     message: mensagem
+                  })
+               })
+            
             }
          })
-         
-         const mensagem = 'Senha redefinida.'
-         console.log('(server) ', mensagem)
-         return res.json({
-            sucess: true,
-            message: mensagem
-         })
-
       }else{
          return res.status(statusAviso).json({
             error: true,
