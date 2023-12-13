@@ -20,18 +20,22 @@ conexao.connect((err) => {
    }
 })
 
-function query(sql, callback){
-   conexao.query(sql, (err, result) => {
+/**
+ * Executa uma consulta SQL no banco de dados.
+ * @param {string} query - consulta desejada.
+ * @param {function} callback - função de retorno de chamada.
+ */
+function query(query, callback){
+   conexao.query(query, (err, result) => {
       if(err){
          console.error('(database) Erro ao executar a query:', err);
       }else{
-         console.log(`(database) Query "${sql}" realizada com sucesso.`);
+         console.log(`(database) Query "${query}" realizada.`);
       }
       callback(err, result);
    });
 }
 
 export default {
-   query,
-   conexao
+   query
 }
