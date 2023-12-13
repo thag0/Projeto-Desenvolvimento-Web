@@ -96,14 +96,14 @@ app.post('/fazer-login', (req, res) => {
    const queryVerificarLogin = `SELECT * FROM usuarios WHERE nome = '${nomeFormatado}' AND senha = '${senha}'`;
    database.query(queryVerificarLogin, (err, result) => {
       if(err){
-         console.error('(server) Erro ao verificar login:', err);
+         console.error('(server) Erro ao verificar login:', err)
          return res.status(statusErro).json({ 
             error: 'Erro ao verificar login.' 
          });
       }
 
       if(result.length > 0){
-         console.log(`(server) Usuário '${result[0].nome}' logado.`);
+         console.log(`(server) Usuário '${result[0].nome}' logado.`)
          const usuario = result[0]
          res.json({
             login: true,
@@ -112,7 +112,7 @@ app.post('/fazer-login', (req, res) => {
          });
       
       }else{
-         console.log('(server) Nome de usuário ou senha incorretos.');
+         console.log('(server) Nome de usuário ou senha incorretos.')
          res.status(statusAviso).json({ 
             error: 'Nome de usuário ou senha incorretos.' 
          });
@@ -121,15 +121,40 @@ app.post('/fazer-login', (req, res) => {
 });
 
 app.post('/redefinir-senha', (req, res) => {
-   const {
-      email
-   } = req.body
+   const{
+      email,
+      senha,
+      novaSenha
+   } = req.body;
 
-   query = `SELECT * FROM usuarios WHERE email = $'{email}'`
+   const query = `SELECT * FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`
    database.query(query, (err, result) => {
       if(err){
-         result.status(statusErro).json({
+         return result.status(statusErro).json({
+            error: true,
+            message: 'Erro ao consultar o email.'
+         })
+      }
 
+      if(result.length > 0){
+         const queryAlterarSenha = `UPDATE usuarios SET senha = '${novaSenha}' WHERE email = '${email}' AND senha = '${senha}'`;
+         database.query(queryAlterarSenha, (err, result) => {
+            if(err){
+               console.error(`(server) Erro ao redefinir a senha do usuário com email '${email}'`)
+            }
+         })
+         
+         const mensagem = 'Senha redefinida.'
+         console.log('(server) ', mensagem)
+         return res.json({
+            sucess: true,
+            message: mensagem
+         })
+
+      }else{
+         return res.status(statusAviso).json({
+            error: true,
+            message: 'Nenhum usuário encontrado com esse email.'
          })
       }
    })

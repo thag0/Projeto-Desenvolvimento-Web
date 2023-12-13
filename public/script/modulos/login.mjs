@@ -111,8 +111,36 @@ function logoff(){
 	}
 }
 
-function redefinirSenha(email){
-	console.log(email);
+function redefinirSenha(email, senha, novaSenha){
+	const usuario = {
+		email: email,
+		senha: senha,
+		novaSenha: novaSenha
+	}
+
+	fetch('/redefinir-senha', {
+      method: 'POST',
+      headers: {
+         'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(usuario)
+   })
+	.then(responde => responde.json())
+	.then(data => {
+		if(data){
+			if(data.sucess){
+				alert('Senha redefinida.')
+				window.location.href = '/index.html'
+
+			}else{
+				console.log(data.message)
+
+			}
+		}
+	})
+	.catch(error =>{
+		console.error(error)
+	})
 }
 
 function mouseoverPass(obj){

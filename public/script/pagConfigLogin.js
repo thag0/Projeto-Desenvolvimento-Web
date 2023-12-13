@@ -1,6 +1,29 @@
+import modLogin from './modulos/login.mjs'
 import modFuncoes from './modulos/funcoes.mjs'
 
 document.getElementById('botaoVoltar').addEventListener('click', modFuncoes.voltar);
+document.getElementById('botaoConfirmar').addEventListener('click', function() {
+  var email = document.getElementById('email').value
+  var senha = document.getElementById('senha').value
+  var novaSenha = document.getElementById('novaSenha').value
+  
+  email = email.trim()
+  senha = senha.trim()
+  novaSenha = novaSenha.trim()
+
+  if(!email || !senha || !novaSenha){
+    window.alert("Por favor, preencha todos os campos.")
+    return
+  }
+
+  if(senha === novaSenha){
+    window.alert("A nova senha não pode ser igual a atual.")
+    return
+  }
+
+  modLogin.redefinirSenha(email, senha, novaSenha)
+});	
+
 // Encontre o elemento de link Configurar
 const linkConfigurar = document.querySelector('#apagarConta');
 
