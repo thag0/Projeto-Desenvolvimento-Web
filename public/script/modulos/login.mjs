@@ -60,7 +60,7 @@ function fazerLogin(){
       senha: senha
    };
 
-   fetch('/verificar-login', {
+   fetch('/fazer-login', {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json'
@@ -111,8 +111,8 @@ function logoff(){
 	}
 }
 
-function redefinirSenha(email, senha){
-	console.log("redefinir ");
+function redefinirSenha(email){
+	console.log(email);
 }
 
 function mouseoverPass(obj){

@@ -86,7 +86,7 @@ app.post('/cadastrar-usuario', (req, res) => {
    });
 });
 
-app.post('/verificar-login', (req, res) => {
+app.post('/fazer-login', (req, res) => {
    const { 
       nome, 
       senha 
@@ -119,6 +119,21 @@ app.post('/verificar-login', (req, res) => {
       }
    });
 });
+
+app.post('/redefinir-senha', (req, res) => {
+   const {
+      email
+   } = req.body
+
+   query = `SELECT * FROM usuarios WHERE email = $'{email}'`
+   database.query(query, (err, result) => {
+      if(err){
+         result.status(statusErro).json({
+
+         })
+      }
+   })
+})
 
 app.get('/recuperar-filme', (req, res) => {
    const idCartaz = req.query.idCartaz;

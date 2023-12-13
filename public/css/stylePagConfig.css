@@ -1,11 +1,93 @@
 /* CSS para centralizar a div .configurar */
 
+.center button {
+    display: inline-block;
+    width: 45%; /* Define a largura para ocupar metade do espaço */
+    margin: 0 5px; /* Adiciona um pequeno espaço entre os botões */
+}
+a {
+    cursor: pointer;
+    display: block; /* Transforma o link em um elemento de bloco */
+    margin-top: 40px; /* Adiciona espaço acima do link */
+    margin-bottom: 20px; /* Adiciona espaço abaixo do link */
+    text-align: center; /* Centraliza o texto */
+}
 
-.configurar {
+/* Estilos do modal */
+/* Estilos para o modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: rgb(6, 163, 252);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilos para os inputs do modal */
+.modal input[type="text"],
+.modal input[type="password"] {
+    width: calc(100% - 20px); /* Considerando o padding da div input-field */
+    height: 46px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid white;
+    color: white;
+    margin-bottom: 20px;
+    padding-left: 10px; /* Espaçamento esquerdo para o texto no input */
+}
+
+/* Estilos dos labels dos inputs no modal */
+.modal label {
     position: absolute;
-    bottom: 20px; /* Define uma distância de 20px do final do container */
-    left: 50%; /* Move o início da div configurar para o centro */
-    transform: translateX(-50%); /* Volta a div configurar pela metade da sua largura */
-    text-align: center; /* Alinha o texto ao centro */
-    width: 100%; /* Garante que a largura seja 100% do container */
+    top: 0;
+    left: 10px; /* Espaçamento esquerdo para o rótulo */
+    color: black;
+    transform: translateY(18px);
+    transition: .25s ease-in-out;
+}
+
+/* Adaptação para o efeito do input focado */
+.modal input:focus + label,
+.modal input:not(:placeholder-shown) + label {
+    transform: translateY(-14px) scale(.8);
+    color: #0b0c0c;
+}
+
+.modal input:focus {
+    box-shadow: 0 1px 0 0 #26a96a;
+    border-bottom: #26a96a 1px solid;
+}
+
+/* Estilos para o campo de entrada com conteúdo */
+.modal input:not(:placeholder-shown) {
+    box-shadow: 0 1px 0 0 #26a96a;
+    border-bottom: #26a96a 1px solid;
 }
