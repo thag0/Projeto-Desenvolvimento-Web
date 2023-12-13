@@ -114,10 +114,10 @@ novaLinhaUsuario.classList.add('edit-row');
 novaLinhaUsuario.style.display = 'none';
 
 const colunasUsuarios = [
-    'ID do Usuário', 
+    'Id', 
     'Nome', 
     'Email', 
-    'Senha'
+    'Senha',
 ];
 
 colunasUsuarios.forEach(coluna => {
@@ -139,11 +139,12 @@ colunasUsuarios.forEach(coluna => {
 const selectCelulaUsuario = novaLinhaUsuario.insertCell();
 const selectUsuario = document.createElement('select');
 selectUsuario.classList.add('editable');
+
 const optionAdmin = document.createElement('option');
-optionAdmin.setAttribute('value', 'admin');
+optionAdmin.setAttribute('value', 'sim');
 optionAdmin.textContent = 'Sim';
 const optionUser = document.createElement('option');
-optionUser.setAttribute('value', 'user');
+optionUser.setAttribute('value', 'nao');
 optionUser.textContent = 'Não';
 selectUsuario.appendChild(optionAdmin);
 selectUsuario.appendChild(optionUser);
@@ -155,14 +156,20 @@ btnEditarUsuario.textContent = 'Editar';
 btnEditarUsuario.classList.add('edit-button');
 botoesCelulaUsuario.appendChild(btnEditarUsuario);
 
-
 const btnSalvarUsuario = document.createElement('button');
 btnSalvarUsuario.textContent = 'Salvar';
 btnSalvarUsuario.classList.add('save-button');
 botoesCelulaUsuario.appendChild(btnSalvarUsuario);
 btnSalvarUsuario.addEventListener('click', function (){
-    // const id = 
-})
+    const valoresUsuario = {};
+    novaLinhaUsuario.querySelectorAll('.editable').forEach((input, index) => {
+        const identificadorColuna = colunasUsuarios[index];
+        const valorCampo = input.tagName === 'SELECT' ? input.value : input.getAttribute('placeholder');
+        valoresUsuario[identificadorColuna] = valorCampo;
+    });
+
+    // console.log('Valores do usuário:', valoresUsuario);
+});
 
 const btnRemoverUsuario = document.createElement('button');
 btnRemoverUsuario.textContent = 'Remover';

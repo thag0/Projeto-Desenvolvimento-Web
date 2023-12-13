@@ -3,10 +3,15 @@
  * pegos nos campos.
  */
 function cadastrarUsuario(){
-	const nome = document.getElementById('nome').value;
-	const email = document.getElementById('email').value;
-	const senha = document.getElementById('senha').value;
-	const confirmarSenha = document.getElementById('confirmar_senha').value;
+	var nome = document.getElementById('nome').value;
+	var email = document.getElementById('email').value;
+	var senha = document.getElementById('senha').value;
+	var confirmarSenha = document.getElementById('confirmar_senha').value;
+
+	nome = nome.trim()
+	email = email.trim()
+	senha = senha.trim()
+	confirmarSenha = confirmarSenha.trim()
 
 	if(senha !== confirmarSenha){
 		alert('As senhas não coincidem. Verifique os campos.');
@@ -106,8 +111,8 @@ function logoff(){
 	}
 }
 
-function redefinirSenha(){
-	console.log('implementar redefinição de senha.')
+function redefinirSenha(email, senha){
+	console.log("redefinir ");
 }
 
 function mouseoverPass(obj){
