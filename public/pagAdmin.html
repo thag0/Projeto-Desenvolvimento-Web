@@ -2,84 +2,118 @@
 <html lang="pt-br">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
-	<link rel="stylesheet" type="text/css" href="./css/styleAdm.css">
-	<script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
-	<title>Página ADM</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/styleIndex.css">
+    <link rel="stylesheet" type="text/css" href="./css/styleAdm.css">
+    <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+    <title>Página ADM</title>
 </head>
 
 <body>
-	<script src="./script/pagAdmin.js" type="module"></script>
+    <script src="./script/pagAdmin.js" type="module"></script>
 
-	<header class="cabeca">
-		<a href="index.html"><img src="images/logo.png" alt="imagem"></a>
-		<div class="login-cadastro">
-			<img id="user" src="images/user.png" alt="user">
-			<ul>
-				<a href="" id="usuarioLogado"></a>
-			</ul>
-			<img id="imgSair" src="images/sair.png" alt="user">
-		</div>
-	</header>
+    <header class="cabeca">
+        <a href="index.html"><img src="images/logo.png" alt="imagem"></a>
+        <div class="login-cadastro">
+            <img id="user" src="images/user.png" alt="user">
+            <ul>
+                <a href="" id="usuarioLogado"></a>
+            </ul>
+            <img id="imgSair" src="images/sair.png" alt="user">
+        </div>
+    </header>
 
-	<div class="containerAdm">
-		<div class="botoes-adm">
-			<button id="telaAdmFilmes">Filmes</button>
-			<button id="telaAdmUsuario">Usuários</button>
-		</div>
-		<div class="telas">
-			<div class="telaAdmFilmes">
-				<h2>Tabela de Filmes</h2>
-				<table id="tabelaFilmes">
-					<thead>
-						<tr>
-							<th>ID do Cartaz</th>
-							<th>Título</th>
-							<th>Elenco</th>
-							<th>Direção</th>
-							<th>Gênero</th>
-							<th>Duração</th>
-							<th>Sinopse</th>
-							<th>Imagem</th>
-							<th>Classificação</th>
-							<th>Editar</th>
-							<th>Remover</th>
+    <div class="containerAdm">
+        <div class="botoes-adm">
+            <button id="telaAdmFilmes">Filmes</button>
+            <button id="telaAdmUsuario">Usuários</button>
+        </div>
+        <div class="telas">
+            <div class="telaAdmFilmes">
+                <!-- Conteúdo da tela de filmes -->
+                <h2>Tabela de Filmes</h2>
+                <table id="tabelaFilmes">
+                    <!-- Cabeçalho da tabela de filmes -->
+                    <thead>
+                        <tr>
+                            <th>ID do Cartaz</th>
+                            <th>Título</th>
+                            <th>Elenco</th>
+                            <th>Direção</th>
+                            <th>Gênero</th>
+                            <th>Duração</th>
+                            <th>Sinopse</th>
+                            <th>Imagem</th>
+                            <th>Classificação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaFilmes">
+                        <!-- Adicionando uma linha com campos editáveis vazios -->
+                        <!--<tr class="edit-row" style="display: none;">
+                            <td><input type="text" class="editable" placeholder="ID do Cartaz"></td>
+                            <td><input type="text" class="editable" placeholder="Título"></td>
+                            <td><input type="text" class="editable" placeholder="Elenco"></td>
+                            <td><input type="text" class="editable" placeholder="Direção"></td>
+                            <td><input type="text" class="editable" placeholder="Gênero"></td>
+                            <td><input type="text" class="editable" placeholder="Duração"></td>
+                            <td><input type="text" class="editable" placeholder="Sinopse"></td>
+                            <td><input type="text" class="editable" placeholder="Imagem"></td>
+                            <td><input type="text" class="editable" placeholder="Classificação"></td>
+                            <td>
+                                <button class="edit-button">Editar</button>
+                                <button class="save-button" style="display: none;">Salvar</button>
+                                <button class="remove-button">Remover</button>
+                            </td>
+                        </tr>-->
+                        <!-- Restante das linhas serão adicionadas dinamicamente via JavaScript -->
+                    </tbody>
+                </table>
+                <button id="cadastrarFilme">Cadastrar Filme</button>
+            </div>
+            <div class="telaAdmUsuario">
+                <!-- Conteúdo da tela de usuários -->
+                <h2>Tabela de Usuários</h2>
+                <table id="tabelaUsuarios">
+                    <!-- Cabeçalho da tabela de usuários -->
+                    <thead>
+                        <tr>
+                            <th>ID do Usuário</th>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Senha</th>
+                            <th>Administrador</th>
 
-						</tr>
-					</thead>
-					<tbody id="corpoTabelaFilmes">
-						<!-- Aqui serão adicionadas as linhas com os dados dos filmes -->
-						<!-- Cada linha deve conter os botões de Editar e Remover -->
-					</tbody>
-				</table>
-			</div>
-			<div class="telaAdmUsuario">
-				<!-- Conteúdo da tela de usuários -->
-				<h2>Tabela de Usuários</h2>
-				<table id="tabelaUsuarios">
-					<thead>
-						<tr>
-							<th>ID do Usuário</th>
-							<th>Nome</th>
-							<th>Email</th>
-							<th>Senha</th>
-							<th>Administrador</th>
-							<th>Editar</th>
-							<th>Remover</th>
-						</tr>
-					</thead>
-					<tbody id="corpoTabelaUsuario">
-						<!-- Aqui serão adicionadas as linhas com os dados dos filmes -->
-						<!-- Cada linha deve conter os botões de Editar e Remover -->
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
+                        </tr>
+                    </thead>
+                    <tbody id="corpoTabelaUsuario">
+                        <!-- Adicionando uma linha com campos editáveis vazios -->
+                        <!--<tr class="edit-row " style="display: none;">
+                            <td><input type="text" class="editable" placeholder="ID do Usuário"></td>
+                            <td><input type="text" class="editable" placeholder="Nome"></td>
+                            <td><input type="text" class="editable" placeholder="Email"></td>
+                            <td><input type="password" class="editable" placeholder="Senha"></td>
+                            <td>
+                                <select class="editable">
+                                    <option value="admin">Sim</option>
+                                    <option value="user">Não</option>
+                                </select>
+                            </td>
+                            <td>
+                                <button class="edit-button">Editar</button>
+                                <button class="save-button" style="display: none;">Salvar</button>
+                                <button class="remove-button">Remover</button>
+                            </td>
+                        </tr>-->
+                        <!-- Restante das linhas serão adicionadas dinamicamente via JavaScript -->
+                    </tbody>
+                </table>
+                <button id="cadastrarUsuario">Cadastrar Usuário</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
