@@ -1,5 +1,5 @@
 /**
- * Cadastra o usuário no banco de dados usando os valores
+ * Cadastra o usuário no banco de dados usando os valores.
  * pegos nos campos.
  */
 function cadastrarUsuario(){
@@ -30,9 +30,7 @@ function cadastrarUsuario(){
 			'Content-Type': 'application/json'
 		},
 		body: JSON.stringify(usuario)
-	})
-	.then(response => response.json())
-	.then(data => {
+	}).then(response => response.json()).then(data => {
 		console.log(data);
 		
 		if(data.sucess){
@@ -41,14 +39,13 @@ function cadastrarUsuario(){
 		if(data.error){
 			window.alert(data.message)
 		}
-	})
-	.catch(error => {
+	}).catch(error => {
 		console.error('Erro ao cadastrar usuário:', error);
 	});
 }
 
 /**
- * Consulta no banco de dados as informações de nome e senha
+ * Consulta no banco de dados as informações de nome e senha.
  * do usuário.
  */
 function fazerLogin(){
@@ -66,9 +63,7 @@ function fazerLogin(){
          'Content-Type': 'application/json'
       },
       body: JSON.stringify(usuario)
-   })
-   .then(response => response.json())
-   .then(data => {
+   }).then(response => response.json()).then(data => {
       if(data.login){
 			const nomeUsuario = document.getElementById('nomeLogin')
          if(nomeUsuario){
@@ -92,7 +87,7 @@ function fazerLogin(){
 }
 
 /**
- * Remove o usuário logado da sessão atual
+ * Remove o usuário logado da sessão atual.
  */
 function logoff(){
 	const pagina = window.location.href
@@ -111,6 +106,12 @@ function logoff(){
 	}
 }
 
+/**
+ * Altera o resgistro da senha do usuário no banco de dados.
+ * @param {*} email string formatada contendo o email.
+ * @param {*} senha string formatada contendo a senha.
+ * @param {*} novaSenha string formatada contendo a nova senha.
+ */
 function redefinirSenha(email, senha, novaSenha){
 	const usuario = {
 		email: email,
@@ -124,9 +125,7 @@ function redefinirSenha(email, senha, novaSenha){
          'Content-Type': 'application/json'
       },
       body: JSON.stringify(usuario)
-   })
-	.then(responde => responde.json())
-	.then(data => {
+   }).then(response => response.json()).then(data => {
 		if(data){
 			if(data.sucess){
 				alert('Senha redefinida.')
@@ -140,6 +139,69 @@ function redefinirSenha(email, senha, novaSenha){
 		}
 	})
 	.catch(error =>{
+		console.error(error)
+	})
+}
+
+/**
+ * Faz a verificação no banco de dados usando o email e senha fornecidos.
+ * @param {*} email string formatada contendo o email.
+ * @param {*} senha string formatada contendo a senha.
+ */
+function verificarExclusao(email, senha){
+	const usuario = {
+		email: email,
+		senha: senha
+	}
+
+	fetch('/verificar-exclusao', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(usuario)
+	}).then(response => response.json()).then(data => {
+		if(data){
+			if(data.sucess){
+				if(window.confirm('Usuário encontrado, deseja mesmo remover ?')){
+					excluirConta(usuario)
+					
+				}else{
+					window.alert('Operação cancelada, nenhuma alteração foi feita.')
+					window.location.href = '/index.html'
+				}
+			}
+			if(data.error){
+				window.alert(data.message)
+			}
+		}
+	}).catch(error =>{
+		console.error(error)
+	})
+}
+
+/**
+ * Exlui definitivamente do banco de dados o registro do usuário.
+ * @param {*} usuario objeto contendo as informações de email e senha.
+ */
+function excluirConta(usuario){
+	fetch('excluir-usuario', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(usuario)		
+	}).then(response => response.json()).then(data =>{
+		if(data){
+			if(data.sucess){
+				window.alert(data.message)
+				window.location.href = '/index.html'
+			}
+			if(data.error){
+				window.alert(data.message)
+			}
+		}
+	}).catch(error =>{
 		console.error(error)
 	})
 }
@@ -169,6 +231,7 @@ export default {
 	fazerLogin,
 	logoff,
 	redefinirSenha,
+	verificarExclusao,
 	mouseoverPass,
 	mouseoutPass,
 	mouseoverPass2,

@@ -150,6 +150,7 @@ body > .navmain {
     cursor: pointer;
     word-wrap: break-word;
     top: 2z0px; 
+    margin-top: 15px;
     
 }
 #emCartaz{
@@ -162,7 +163,7 @@ body > .navmain {
     position: absolute;
     width: 107px; 
     height: 3px; 
-    top: 9%;  
+    top: 12%;  
     background: #3DB3F5; 
     border-radius: 2px;
     /* Posicionamento e estilos conforme necessário */
@@ -192,6 +193,7 @@ body > .navmain {
     cursor: pointer;
     margin: 0 20px;
     margin-top: -60px;
+    background-color: transparent;
 }
 
 .filme-container {
@@ -202,7 +204,7 @@ body > .navmain {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 5%;
+    padding-top: 7%;
     overflow: hidden; /* Para esconder filmes que ultrapassam a largura */
 }
 
@@ -233,13 +235,81 @@ body > .navmain {
     width: 211px;
     height: 313px;
     cursor: pointer;
+
+    box-sizing: border-box;
+    background: rgba(217, 217, 217, 0.58);
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    text-align: center;
+    transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    font-weight: bolder;
+    color: black;
 }
+
+.container img:hover {
+    border: 1px solid rgb(255, 255, 255);
+    transform: scale(1.05);
+  }
+  
+  .container img:active {
+    transform: scale(0.95) rotateZ(1.7deg);
+  }
+
+.trailers p {
+
+    color: #FFFFFF;
+    width: 100%;
+    padding: 0px 0px;
+    margin: 30px 40px 30px 0px;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    text-align: center;
+
+
+}
+
+.trailers {
+
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    
+}
+
+.trailers iframe {
+
+    text-align: center;
+    padding: 20px;
+    margin: 15px;
+}
+
+
+.rodape {
+
+    height: 150px;
+    
+}
+
+.rodape p {
+
+   text-align: center;
+}
+
 
 .contatos {
     color:black;
 	font-size: 80%;
-	padding-top: 10px;  
-    margin-left: 5%;
+	padding: 10px 40px; 
     margin-top: auto; /* Empurrar para a parte inferior */
 }
 

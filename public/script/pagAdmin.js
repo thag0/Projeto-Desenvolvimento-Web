@@ -1,5 +1,6 @@
 import modFilme from './modulos/filme.mjs'
 import modLogin from './modulos/login.mjs'
+import modFuncoes from './modulos/funcoes.mjs'
 // import modDatabase from './modulos/database.mjs'
 
 const usuarioLogado = sessionStorage.getItem('usuarioLogado')
@@ -206,3 +207,5 @@ document.getElementById('cadastrarFilme').addEventListener('click', function () 
 document.getElementById('cadastrarUsuario').addEventListener('click', function () {
     novaLinhaUsuario.style.display = 'table-row'; // Mostra a nova linha em branco
 });
+document.getElementById('telaAdmFilmes').addEventListener('click', modFuncoes.barraFilme);
+document.getElementById('telaAdmUsuario').addEventListener('click', modFuncoes.barraUser);

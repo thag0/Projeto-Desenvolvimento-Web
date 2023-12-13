@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="shortcut icon" href="./images/ico.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/stylePagCadastro.css">
-    <link rel="stylesheet" href="css/stylePagConfig.css">
-    <title>Configuração de login</title>
+	<link rel="stylesheet" href="css/stylePagCadastro.css">
+	<link rel="stylesheet" href="css/stylePagConfig.css">
+	<title>Configuração de login</title>
 </head>
+
 <body>
 	<script type="module" src="./script/pagConfigLogin.js"></script>
-    <div class="container">
+	<div class="container">
 		<h2>Redefinir senha </h2>
-		<form id="formCadastro" action="index.html" method="post">
+		<form id="formCadastro">
 
 			<div class="input-field">
 				<input type="text" id="email" placeholder="E-mail">
@@ -24,6 +26,7 @@
 				<input type="password" id="senha" placeholder="Senha atual">
 				<label for="senha">Senha Atual:</label>
 			</div>
+
 			<div class="input-field">
 				<input type="password" id="novaSenha" placeholder="Nova senha">
 				<label for="senha">Nova Senha:</label>
@@ -33,33 +36,36 @@
 				<button type="button" id="botaoConfirmar">Confirmar</button>
 				<button type="button" id="botaoVoltar">Voltar</button>
 			</div>
-         
+
 			<a id="apagarConta">
-				<p>Cansou de usar o CineFecomp? 
+				<p>Cansou de usar o CineFecomp?
 					Apague sua conta.</p>
 			</a>
-       
+
 			<div id="myModal" class="modal">
 				<div class="modal-content">
-				  <span class="close">&times;</span>
-				  <h2>Confirme a exclusão</h2>
-				  <div class="input-field">
-					<input type="text" id="email" placeholder=" ">
-					<label for="email">E-mail:</label>
+					<span class="close">&times;</span>
+					<h2>Confirme a exclusão</h2>
+					<div class="input-field">
+						<input type="text" id="emailExclusao" placeholder=" ">
+						<label for="email">E-mail:</label>
+					</div>
+
+					<div class="input-field">
+						<input type="password" id="senhaExclusao" placeholder=" ">
+						<label for="senha">Senha:</label>
+					</div>
+
+					<button id="botaoApagar" type="button">
+						Apagar
+					</button>
 				</div>
-				
-				<div class="input-field">
-					<input type="password" id="senha" placeholder=" ">
-					<label for="senha">Senha:</label>
-				</div>
-				
-				  <button id="btnApagar">Apagar</button>
-				</div>
-			  </div>
-			  
+			</div>
+
 	</div>
 	</form>
 
 	</div>
 </body>
+
 </html>

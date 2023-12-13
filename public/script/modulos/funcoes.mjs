@@ -34,6 +34,23 @@ function barraBreve(){
 	cartaz.style.display = "none";
 }
 
+/* para pagina adm*/
+function barraFilme(){
+	var filme = document.getElementById("barraFilme");
+	var user = document.getElementById("barraUser");
+
+	filme.style.display = "block";
+	user.style.display = "none";
+}
+
+function barraUser(){
+	var filme = document.getElementById("barraFilme");
+	var user = document.getElementById("barraUser");
+
+	user.style.display = "block";
+	filme.style.display = "none";
+}
+
 function moverDireita(){
 	const container = document.querySelector('.container');
 	const filmes = container.querySelectorAll('.item');
@@ -88,6 +105,8 @@ export default {
 	selecionarFilme,
 	barraCartaz,
 	barraBreve,
+	barraFilme,
+	barraUser,
 	moverDireita,
 	moverEsquerda,
 	usuarioLogado,

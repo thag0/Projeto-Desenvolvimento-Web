@@ -162,6 +162,61 @@ app.post('/redefinir-senha', (req, res) => {
    })
 })
 
+app.post('/verificar-exclusao', (req, res) => {
+   const {
+      email,
+      senha
+   } = req.body;
+
+   const queryVerificarEmail = `SELECT * FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`
+   database.query(queryVerificarEmail, (err, result) => {
+      if(err){
+         return res.status(statusErro).json({
+            error: true,
+            message: "(server) Erro ao fazer consulta no banco de dados."
+         })
+
+      }
+      if(result.length > 0){
+         return res.json({
+            sucess: true,
+            message: 'Usuário encontrado.'
+         })
+      
+      }else{
+         return res.json({
+            error: true,
+            message: 'Nenhum usuário encontrado com os campos fornecidos.'
+         })
+      }
+   })
+})
+
+app.post('/excluir-usuario', (req, res) =>{
+   const {
+      email,
+      senha
+   } = req.body
+
+   const queryRemoverUsuario = `DELETE FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`
+   database.query(queryRemoverUsuario, (err, result) =>{
+      if(err){
+         return res.json({
+            error: true,
+            message: 'Erro inesperado ao remover usuário'
+         })
+      }
+
+      const mensagem = `Usuário removido`
+      console.log('(server) ', mensagem)
+      return res.json({
+         sucess: true,
+         message: mensagem
+      })
+
+   })
+})
+
 app.get('/recuperar-filme', (req, res) => {
    const idCartaz = req.query.idCartaz;
    if(!idCartaz){
