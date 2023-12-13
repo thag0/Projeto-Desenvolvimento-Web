@@ -1,10 +1,7 @@
 import modLogin from './modulos/login.mjs';
-import filme from './modulos/filme.mjs';
+import modFilme from './modulos/filme.mjs';
 import modFuncoes from './modulos/funcoes.mjs'
 
-const funcoesPagFilme = {
-	recuperarFilme: filme.recuperarFilme,
-}
 modFuncoes.usuarioLogado()
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -101,4 +98,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.getElementById('imgSair').addEventListener('click', modLogin.logoff);
 const idCartaz = sessionStorage.getItem("idFilmeSelecionado")
-funcoesPagFilme.recuperarFilme(idCartaz)
+
+modFilme.recuperarFilme(idCartaz)

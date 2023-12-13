@@ -1,0 +1,11 @@
+.container {
+   text-align: justify;
+   padding: 30px;
+   max-width: 600px;
+   /* Defina um valor adequado para a largura máxima da caixa */
+   margin: 50px auto 0;
+   /* Margem de 50px superior, 0 nas laterais, e automática na inferior */
+   /*border: 2px solid #ffffff; /* Cor da borda azul claro */
+   background-color: #69e0ef;
+   /* Cor de fundo azul claro */
+}

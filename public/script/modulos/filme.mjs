@@ -35,6 +35,9 @@ function recuperarFilme(idCartaz){
 		const elmFilmeImagem = document.getElementById('filmeImagem')
 		elmFilmeClassificacao.src = filmes[0].caminho_classificacao 
 		elmFilmeImagem.src = filmes[0].caminho_imagem
+
+		//titulo da pagina dinamico
+		document.title = 'Cine - ' + filmes[0].nome
 	})
 	.catch(error => {
 		console.error('Erro ao obter dados do servidor:', error);

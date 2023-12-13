@@ -5,7 +5,13 @@
 	width: 45%;
 	/* Define a largura para ocupar metade do espaço */
 	margin: 0 5px;
+
 	/* Adiciona um pequeno espaço entre os botões */
+}
+
+button:hover{
+	background: rgb(61, 179, 245);
+	color: rgb(0, 0, 0);
 }
 
 a {
@@ -44,7 +50,7 @@ a {
 }
 
 .close {
-	color: #aaa;
+	color: #ff0c0c;
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
@@ -100,4 +106,11 @@ a {
 .modal input:not(:placeholder-shown) {
 	box-shadow: 0 1px 0 0 #26a96a;
 	border-bottom: #26a96a 1px solid;
+}
+
+.modal button{
+	background: rgb(6, 163, 252);
+}
+.modal button:hover{
+	background-color: rgb(211, 47, 47);
 }
