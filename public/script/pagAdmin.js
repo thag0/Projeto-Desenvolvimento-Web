@@ -1,7 +1,6 @@
 import modFilme from './modulos/filme.mjs'
 import modLogin from './modulos/login.mjs'
 import modFuncoes from './modulos/funcoes.mjs'
-// import modDatabase from './modulos/database.mjs'
 
 const usuarioLogado = sessionStorage.getItem('usuarioLogado')
 const elemUsuarioLogado = document.getElementById("usuarioLogado")
@@ -19,33 +18,34 @@ if (elemUsuarioLogado){
 
 document.getElementById('imgSair').addEventListener('click', modLogin.logoff);
 
-try{
-    modFilme.recuperarTodosFilmes()
-    modFilme.recuperarTodosUsuarios()
+try {
+    modFilme.recuperarTodosFilmes();
+    modFilme.recuperarTodosUsuarios();
 
-    var filmes
-    var usuarios
-    const filmesRecuperados = sessionStorage.getItem('admFilmesRecuperados')
-    if(filmesRecuperados){
-        filmes = JSON.parse(filmesRecuperados)
+    setTimeout(() => {//dar tempo de carregar o database antes da página
+        var filmes;
+        var usuarios;
+        const filmesRecuperados = sessionStorage.getItem('admFilmesRecuperados');
+        if(filmesRecuperados){
+            filmes = JSON.parse(filmesRecuperados);
         
-    }else{
-        console.log('(pagAdmin) erro ao recuperar os dados de filmes');
-    }
+        }else{
+            console.log('(pagAdmin) erro ao recuperar os dados de filmes');
+        }
 
-    const usuariosRecuperados = sessionStorage.getItem('admUsuariosRecuperados')
-    if(usuariosRecuperados){
-        usuarios = JSON.parse(usuariosRecuperados)
+        const usuariosRecuperados = sessionStorage.getItem('admUsuariosRecuperados');
+        if(usuariosRecuperados){
+            usuarios = JSON.parse(usuariosRecuperados);
+        }else{
+            console.log('(pagAdmin) erro ao recuperar os dados de filmes');
+        }
 
-    }else{
-        console.log('(pagAdmin) erro ao recuperar os dados de filmes')
-    }
-
-    preencherTabela('tabelaFilmes', filmes)
-    preencherTabela('tabelaUsuarios', usuarios)
+        preencherTabela('tabelaFilmes', filmes);
+        preencherTabela('tabelaUsuarios', usuarios);
+    }, 1000);
 
 }catch(error){
-    console.error('Erro ao recuperar dados do banco:', error)
+    console.error('Erro ao recuperar dados do banco:', error);
 }
 
 function preencherTabela(tabelaID, dados) {
