@@ -1,5 +1,6 @@
 import database from './public/script/modulos/database.mjs'
 import express from 'express';
+import bcrypt from 'bcrypt';
 const app = new express();
 
 app.use(express.static('./public'));
@@ -28,43 +29,56 @@ app.post('/cadastrar-usuario', (req, res) => {
       });
    }
 
-   const queryVerificarEmail = `SELECT * FROM usuarios WHERE email = '${email}'`;
-   database.query(queryVerificarEmail, (err, result) => {
-      if(err){
-         const mensagem = 'Erro ao verificar e-mail existente'
-         console.error('(server) ', mensagem, err);
-         return res.status(statusErro).json({ 
-            error: 'Erro ao verificar e-mail existente.',
-            message: mensagem
-         });
-      }
-
-      if(result.length > 0){
-         return res.status(statusAviso).json({ 
-				error: 'Este e-mail já está cadastrado.',
-            message: 'Já existe um usuário cadastrado com este e-mail.'
-			});
-      }
-
-      const queryCadastrar = `INSERT INTO usuarios (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}')`;
-      database.query(queryCadastrar, (err, result) => {
+   try{//tratar criptografia da senha
+      const queryVerificarEmail = `SELECT * FROM usuarios WHERE email = '${email}'`;
+      database.query(queryVerificarEmail, async (err, result) => {
          if(err){
             const mensagem = 'Erro ao verificar e-mail existente'
             console.error('(server) ', mensagem, err);
             return res.status(statusErro).json({ 
-					error: true,
+               error: 'Erro ao verificar e-mail existente.',
                message: mensagem
-				});
+            });
          }
-
-         const mensagem = 'Usuário cadastrado com sucesso.'
-         console.log('(server) ', mensagem);
-         res.json({
-            sucess: true,
-            message: mensagem
+   
+         if(result.length > 0){
+            return res.status(statusAviso).json({ 
+               error: 'Este e-mail já está cadastrado.',
+               message: 'Já existe um usuário cadastrado com este e-mail.'
+            });
+         }
+   
+         const salt = await bcrypt.genSalt(10)
+         const hash = await bcrypt.hash(senha, salt)
+   
+         const queryCadastrar = `INSERT INTO usuarios (nome, email, senha) VALUES ('${nome}', '${email}', '${hash}')`;
+         database.query(queryCadastrar, (err, result) => {
+            if(err){
+               const mensagem = 'Erro ao verificar e-mail existente'
+               console.error('(server) ', mensagem, err);
+               return res.status(statusErro).json({ 
+                  error: true,
+                  message: mensagem
+               });
+            }
+   
+            const mensagem = 'Usuário cadastrado com sucesso.'
+            console.log('(server) ', mensagem);
+            res.json({
+               sucess: true,
+               message: mensagem
+            });
          });
       });
-   });
+
+   }catch(err){
+      const mensagem = 'Erro ao cadastrar o usuário.'
+      console.log('(server) ', mensagem)
+      return res.status(statusErro).json({
+         error: true,
+         message: mensagem
+      })
+   }
 });
 
 app.post('/fazer-login', (req, res) => {
@@ -74,8 +88,8 @@ app.post('/fazer-login', (req, res) => {
    } = req.body;
 
    const nomeFormatado = nome.trim()
-   const queryVerificarLogin = `SELECT * FROM usuarios WHERE nome = '${nomeFormatado}' AND senha = '${senha}'`;
-   database.query(queryVerificarLogin, (err, result) => {
+   const queryVerificarLogin = `SELECT * FROM usuarios WHERE nome = '${nomeFormatado}'`;
+   database.query(queryVerificarLogin, async (err, result) => {
       if(err){
          console.error('(server) Erro ao verificar login:', err)
          return res.status(statusErro).json({ 
@@ -84,18 +98,30 @@ app.post('/fazer-login', (req, res) => {
       }
 
       if(result.length > 0){
-         console.log(`(server) Usuário '${result[0].nome}' logado.`)
          const usuario = result[0]
-         res.json({
-            login: true,
-            nomeUsuario: usuario.nome,
-            admin: usuario.admin
-         });
+         const senhaCorreta = await bcrypt.compare(senha, usuario.senha)
+         if(senhaCorreta){
+            console.log(`(server) Usuário '${usuario.nome}' logado.`);
+            res.json({
+               login: true,
+               nomeUsuario: usuario.nome,
+               admin: usuario.admin
+            });
+         
+         }else{
+            const mensagem = 'Senha incorreta.'
+            console.log('(server) ', mensagem);
+            res.status(statusAviso).json({
+               error: mensagem
+            });
+         }
       
       }else{
-         console.log('(server) Nome de usuário ou senha incorretos.')
+         const mensagem = 'Nenhum registro encontrado com os dados fornecidos.'
+         console.log('(server) ', mensagem)
          res.status(statusAviso).json({ 
-            error: 'Nome de usuário ou senha incorretos.' 
+            error: true,
+            message: 'Nenhum registro encontrado com os dados fornecidos.' 
          });
       }
    });
