@@ -231,7 +231,7 @@ body > .navmain {
     align-items: center;
 }
 
-.container img {
+.imagem {
     width: 211px;
     height: 313px;
     cursor: pointer;
@@ -251,14 +251,14 @@ body > .navmain {
     color: black;
 }
 
-.container img:hover {
+.imagem:hover {
     border: 1px solid rgb(255, 255, 255);
     transform: scale(1.05);
-  }
+}
   
-  .container img:active {
+.imagem:active {
     transform: scale(0.95) rotateZ(1.7deg);
-  }
+}
 
 .trailers p {
 
