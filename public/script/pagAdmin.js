@@ -22,27 +22,25 @@ try {
     modFilme.recuperarTodosFilmes();
     modFilme.recuperarTodosUsuarios();
 
-    setTimeout(() => {//dar tempo de carregar o database antes da página
-        var filmes;
-        var usuarios;
-        const filmesRecuperados = sessionStorage.getItem('admFilmesRecuperados');
-        if(filmesRecuperados){
-            filmes = JSON.parse(filmesRecuperados);
-        
-        }else{
-            console.log('(pagAdmin) erro ao recuperar os dados de filmes');
-        }
+    var filmes;
+    var usuarios;
+    const filmesRecuperados = sessionStorage.getItem('admFilmesRecuperados');
+    if(filmesRecuperados){
+        filmes = JSON.parse(filmesRecuperados);
+    
+    }else{
+        console.log('(pagAdmin) erro ao recuperar os dados de filmes');
+    }
 
-        const usuariosRecuperados = sessionStorage.getItem('admUsuariosRecuperados');
-        if(usuariosRecuperados){
-            usuarios = JSON.parse(usuariosRecuperados);
-        }else{
-            console.log('(pagAdmin) erro ao recuperar os dados de filmes');
-        }
+    const usuariosRecuperados = sessionStorage.getItem('admUsuariosRecuperados');
+    if(usuariosRecuperados){
+        usuarios = JSON.parse(usuariosRecuperados);
+    }else{
+        console.log('(pagAdmin) erro ao recuperar os dados de filmes');
+    }
 
-        preencherTabela('tabelaFilmes', filmes);
-        preencherTabela('tabelaUsuarios', usuarios);
-    }, 1000);
+    preencherTabela('tabelaFilmes', filmes);
+    preencherTabela('tabelaUsuarios', usuarios);
 
 }catch(error){
     console.error('Erro ao recuperar dados do banco:', error);
